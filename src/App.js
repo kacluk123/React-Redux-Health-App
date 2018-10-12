@@ -4,7 +4,7 @@ import Navbar from './components/layout/Navbar'
 import Profile from './components/profile/Profile'
 import MyDiet from './components/mydiet/MyDiet'
 import WorkoutPlan from './components/workoutplan/WorkoutPlan'
-
+import Login from './components/login/Login'
 import './style/Main.scss'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -16,9 +16,11 @@ class App extends Component {
                 <Navbar/>
 
                 <Switch>
+
                     <Route component={Profile} exact path="/profile"/>
                     <Route component={MyDiet} exact path="/diet"/>
                     <Route component={WorkoutPlan} exact path="/workout"/>
+                    <Route component={Login} exact path="/login"/>
 
                 </Switch>
 

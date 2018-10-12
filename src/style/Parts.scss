@@ -1,4 +1,16 @@
 .container{
-    max-width: 1040px;
     margin: 0 auto;
+    width: 1040px;
+}
+
+.col4{
+    width: 25%;
+    margin: 0 auto;
+
+}
+@media(max-width: 720px){
+
+    .col4{
+        width: 100%;
+    }
 }

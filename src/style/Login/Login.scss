@@ -1,0 +1,86 @@
+.formContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+
+
+}
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    input[type="password"], input[type="email"]{
+        width: 100%;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #393f4d;
+        font-weight: lighter;
+        font-size: 20px;
+        color: white;
+        font-family: 'Open Sans', sans-serif;
+        &::placeholder{
+            color: white;
+            font-weight: lighter;
+        }
+        &:focus{
+            background: transparent;
+            border-bottom: 1px solid white;
+            outline: none;
+
+        }
+    }
+    input[type="submit"]{
+        display: inline-flex;
+        width: 50%;
+        padding: 10px;
+        justify-content: center;
+        outline: none;
+        border: none;
+        font-weight: lighter;
+        color: #393f4d;
+        background-color: black;
+        font-family: 'Open Sans', sans-serif;
+        text-transform: uppercase;
+        cursor: pointer;
+        font-size: 20px;
+        letter-spacing: 3px;
+        &:hover{
+            color: white;
+        }
+    }
+
+    input{
+        margin-top: 20px;
+    }
+
+
+
+
+}
+.main-login{
+    width: 100% ;
+    min-height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 33333;
+    &::after{
+        content:"";
+        background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e841ecbd07a90a2fde837fd96cee54c7&auto=format&fit=crop&w=1350&q=80');
+        display: block;
+        width: 100%;
+        height: 100vh;
+        background-size:cover;
+        background-position: center;
+        position:absolute;
+        z-index: -3333;
+        filter: blur(5px)
+
+    }
+}
+
+
