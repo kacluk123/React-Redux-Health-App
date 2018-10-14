@@ -7,27 +7,31 @@ import WorkoutPlan from './components/workoutplan/WorkoutPlan'
 import Login from './components/login/Login'
 import './style/Main.scss'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
+import { Provider } from 'react-redux';
+import {UserIsAuthenticated, UserIsNotAuthenticated} from "./auth";
+import store from './store';
 class App extends Component {
   render() {
     return (
-            <Router>
+
+        <Provider store={store}>
+        <Router>
                 <div style={{display: 'flex'}}>
-                <Navbar/>
+                  <Navbar/>
 
                 <Switch>
-
-                    <Route component={Profile} exact path="/profile"/>
-                    <Route component={MyDiet} exact path="/diet"/>
-                    <Route component={WorkoutPlan} exact path="/workout"/>
-                    <Route component={Login} exact path="/login"/>
+                    <Route component={UserIsAuthenticated(Profile)} exact path="/profile"/>
+                    <Route component={UserIsAuthenticated(MyDiet)} exact path="/diet"/>
+                    <Route component={UserIsAuthenticated(WorkoutPlan)} exact path="/workout"/>
+                    <Route component={UserIsNotAuthenticated(Login)} exact path="/login"/>
 
                 </Switch>
 
 
                 </div>
             </Router>
-    );
+        </Provider>
+    )
   }
 }
 
