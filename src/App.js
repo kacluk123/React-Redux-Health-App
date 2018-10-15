@@ -20,9 +20,11 @@ class App extends Component {
                   <Navbar/>
 
                 <Switch>
+
                     <Route component={UserIsAuthenticated(Profile)} exact path="/profile"/>
                     <Route component={UserIsAuthenticated(MyDiet)} exact path="/diet"/>
                     <Route component={UserIsAuthenticated(WorkoutPlan)} exact path="/workout"/>
+
                     <Route component={UserIsNotAuthenticated(Login)} exact path="/login"/>
 
                 </Switch>
