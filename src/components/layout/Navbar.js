@@ -40,7 +40,8 @@ class Navbar extends Component {
                     <li><Link to="/workout" className="navbar-links workout-link">
                         <i className="fas fa-dumbbell"></i>Workout plan
                     </Link></li>
-                    <li onClick={this.onLogoutClick}><span>Logout</span></li>
+                    <li onClick={this.onLogoutClick}><a href='!#' className="navbar-links profile-link"><i
+                        className="fas fa-sign-out-alt"></i>Logout</a></li>
 
 
 
