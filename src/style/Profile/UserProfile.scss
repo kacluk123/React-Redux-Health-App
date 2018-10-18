@@ -28,6 +28,7 @@
     font-family: 'Open Sans', sans-serif;
     margin-top: 15px;
 }
+
 .user-info{
     display: flex;
     list-style: none;
@@ -37,6 +38,12 @@
     .user-span{
         font-weight: 200;
         font-size: 17px;
+    }
+    .user-macronutrients{
+        font-weight: 400;
+        color: #FF4136;
+        font-size: 20px;
+        font-family: 'Open Sans', sans-serif;
     }
     li{
         padding: 20px;
