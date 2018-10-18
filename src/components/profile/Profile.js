@@ -11,25 +11,12 @@ class Profile extends Component {
         weight: '',
         height:'',
         displayName:'',
-        data: {},
         gender: '',
         displayAvatar: '',
 
 
     }
-    static getDerivedStateFromProps(props,state){
-        if(props.profile !== undefined){
-            if(props.profile !== state.data){
-                return {
-                    data: props.profile,
-                }
-            } else {
-                return null;
-            }
 
-
-        }
-    }
     handleChange =(event)=> {
         this.setState({
             gender: event.target.value
@@ -42,19 +29,18 @@ class Profile extends Component {
         e.preventDefault()
         const {firebase} = this.props
         const {age, weight, height, displayName, gender, displayAvatar} = this.state
-        const heightSquare = Number(height) * Number(height)
+        const heightSquare = Number(height * 0.01) * Number(height * 0.01);
         const basicData = {
             profileAge: age,
             profileWeight: weight,
             profileHeight: height,
             profileDisplayAvatar: displayAvatar,
             profileDisplayName: displayName,
-            profileBmi: Number(weight) / heightSquare,
+            profileBmi: (Number(weight) / heightSquare).toFixed(1),
             profileProteins: 1.5 * Number(weight),
             profileFats: 1.2 * Number(weight),
             profileCarbs: 3 * Number(weight),
-            caloriesNeed:
-                gender === 'man' ? (9.99 * Number(weight)) + (6.25 * Number(height))
+            caloriesNeed: gender === 'man' ? (9.99 * Number(weight)) + (6.25 * Number(height))
                 - (4.92 * Number(age)) + 5 : (9.99 * Number(weight)) + (6.25 * Number(height))
                 - (4.92 * Number(age)) - 161,
         }
@@ -75,8 +61,6 @@ class Profile extends Component {
 
                 return (
                     <div className="formContainer">
-                        <span>{this.state.data.profileWeight}</span>
-
                         <div className="col5">
                             <form onSubmit={this.sendData}>
                                 <div className="row">

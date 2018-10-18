@@ -1,6 +1,53 @@
 .card{
     width: 700px;
     height: 800px;
-    background-color: white;
+    background-color: #393f4d;
+}
+.image-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px ;
+    flex-direction: column;
+    align-items: center;
+}
+.user-profile-avatar{
+    width: 150px;
+    height: 150px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 150px;
+    border-radius: 50%;
 
+}
+.user-name{
+    font-weight: 400;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 15px;
+}
+.user-info{
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    margin:0;
+    padding: 0;
+    .user-span{
+        font-weight: 200;
+        font-size: 17px;
+    }
+    li{
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        span{
+            font-weight: 400;
+            color: white;
+            font-size: 20px;
+        }
+
+    }
 }
