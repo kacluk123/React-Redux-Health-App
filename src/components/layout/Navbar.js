@@ -30,7 +30,7 @@ class Navbar extends Component {
                         <span style={{fontWeight: "400", color: "white"}}>User</span>
                     </li>
                     <li>
-                        <Link to="/profile" className="navbar-links profile-link">
+                        <Link to="/userprofile" className="navbar-links profile-link">
                             <i className="fas fa-user-alt"></i> Profile
                         </Link>
                     </li>
