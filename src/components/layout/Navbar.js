@@ -30,7 +30,7 @@ class Navbar extends Component {
                         <span style={{fontWeight: "400", color: "white"}}>User</span>
                     </li>
                     <li>
-                        <Link to="/userprofile" className="navbar-links profile-link">
+                        <Link to="/profile" className="navbar-links profile-link">
                             <i className="fas fa-user-alt"></i> Profile
                         </Link>
                     </li>
@@ -58,6 +58,7 @@ export default compose(
     firebaseConnect(),
     connect((state,props) =>({
         auth: state.firebase.auth,
-        settings: state.settings
+        settings: state.settings,
+        profile: state.firebase.profile.info,
     }))
 )(Navbar);

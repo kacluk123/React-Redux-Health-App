@@ -19,6 +19,7 @@
     background-repeat: no-repeat;
     background-size: 150px;
     border-radius: 50%;
+    border: 2px solid white;
 
 }
 .user-name{
@@ -29,13 +30,21 @@
     font-family: 'Open Sans', sans-serif;
     margin-top: 15px;
 }
-
+.user-bmi{
+    font-weight: 400;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 25px;
+}
 .user-info{
     display: flex;
     list-style: none;
     justify-content: center;
     margin:0;
     padding: 0;
+
     .user-span{
         font-weight: 200;
         font-size: 17px;
@@ -59,3 +68,29 @@
 
     }
 }
+
+.submit{
+    margin-top: 45px;
+    display: inline-flex;
+    width: 20%;
+    padding: 10px;
+    justify-content: center;
+    outline: none;
+    background-color: transparent;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 3px;
+    border: 2px solid white;
+    font-weight: 400;
+    color: white;
+    border-radius: 20px;
+    font-size: 20px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-family: 'Open Sans', sans-serif;
+    &:hover{
+        color: #FF4136;
+        border: 2px solid #FF4136;
+    }
+}
+
