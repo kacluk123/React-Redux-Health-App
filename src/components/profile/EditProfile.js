@@ -9,6 +9,7 @@ class Profile extends Component {
         super(props)
         this.state ={
             errors: {},
+            gender: "",
         }
 
         this.weight = React.createRef();
@@ -55,12 +56,12 @@ class Profile extends Component {
         else if(this.height.current.value === ''){
             this.setState({errors: {height: 'Height is required!'  }})
         }
-        else if(this.name.current.value === '' || displayName.length < 4 || displayName.length > 10 ){
+        else if(this.name.current.value === '' || this.name.current.value.length < 4 || this.name.current.value.length > 10 ){
             this.setState({errors: {displayName: 'Name is required, and it need to be between 4 and 10 characters!'  }})
         }
-        // else if(gender === ""){
-        //     this.setState({errors: {genderErr: "You must select woman or man!"}})
-        // }
+        else if(gender === ""){
+            this.setState({errors: {genderErr: "You must select woman or man!"}})
+        }
         else {
             firebase.updateProfile({ basicInfo: basicData, info: true}).then(history.push('/profile'))
         }
@@ -83,74 +84,79 @@ class Profile extends Component {
     }
 
     render() {
+        if(this.props.profile){
         const {errors} = this.state
-        const { profileAge, profileWeight, profileHeight, profileDisplayAvatar, profileDisplayName} = this.props.profile;
-
-
+        const { profileAge, profileWeight, profileHeight, profileDisplayAvatar, profileDisplayName, profileGender} = this.props.profile;
         return (
-            <div className="formContainer">
-                <div className="col5">
-                    <form onSubmit={this.sendData}>
-                        <div className="row">
+               <div className="formContainer">
+                   <div className="col5">
+                       <form onSubmit={this.sendData}>
+                           <div className="row">
 
-                            <div className="col3">
-                                <div className="input-container">
-                                    <div className='checkbox-container'>
-                                        <span className="gender">Woman</span>
-                                        <input value="woman"  onChange={this.handleChange} checked={this.state.gender === 'woman'} type="radio"/>
-                                    </div>
-                                    <input onChange={this.onChange} ref={this.weight} defaultValue={profileWeight}  type="number" name='weight'
-                                           placeholder='Weight'/>
+                               <div className="col3">
+                                   <div className="input-container">
+                                       <div className='checkbox-container'>
+                                           <span className="gender">Woman</span>
+                                           <input value="woman"  onChange={this.handleChange} defaultChecked={true} checked={this.state.gender === 'woman'} type="radio"/>
+                                       </div>
 
-                                    <input onChange={this.onChange} ref={this.age} defaultValue={profileAge} type="number" name='age' placeholder="Age"/>
-                                </div>
+                                       <input onChange={this.onChange} ref={this.weight} defaultValue={profileWeight}  type="number" name='weight'
+                                              placeholder='Weight'/>
 
-
-                            </div>
-                            <div className="col3">
-                                <div className="input-container">
-                                    <div className='checkbox-container'>
-                                        <span className="gender">Men</span>
-                                        <input value="man" onChange={this.handleChange} checked={this.state.gender === "man"} type="radio"/>
-                                    </div>
-                                    <input onChange={this.onChange} ref={this.height}    defaultValue={profileHeight} name='height' type="number" placeholder="Height"/>
-                                    <input onChange={this.onChange} ref={this.name}     defaultValue={profileDisplayName} name='displayName' type="text" placeholder="Display name"/>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div className="row">
-
-                            <div className="send-data">
-                                <div style={{width: '77%'}}className="input-container">
-                                    <input  onChange={this.onChange} ref={this.avatar} defaultValue={profileDisplayAvatar} name='displayAvatar' type="text" placeholder="Avatar url"/>
-                                </div>
-                            </div>
-
-                        </div>
+                                       <input onChange={this.onChange} ref={this.age} defaultValue={profileAge} type="number" name='age' placeholder="Age"/>
+                                   </div>
 
 
+                               </div>
+                               <div className="col3">
+                                   <div className="input-container">
+                                       <div className='checkbox-container'>
+                                           <span className="gender">Men</span>
+                                           <input value="man" onChange={this.handleChange} checked={this.state.gender === "man"} type="radio"/>
+                                       </div>
+                                       <input onChange={this.onChange} ref={this.height}    defaultValue={profileHeight} name='height' type="number" placeholder="Height"/>
+                                       <input onChange={this.onChange} ref={this.name}     defaultValue={profileDisplayName} name='displayName' type="text" placeholder="Display name"/>
+                                   </div>
 
-                        <div className="row">
+                               </div>
+                           </div>
+                           <div className="row">
 
-                            <div className="send-data">
-                                <input  type='submit' value="Submit"/>
+                               <div className="send-data">
+                                   <div style={{width: '77%'}}className="input-container">
+                                       <input  onChange={this.onChange} ref={this.avatar} defaultValue={profileDisplayAvatar} name='displayAvatar' type="text" placeholder="Avatar url"/>
+                                   </div>
+                               </div>
 
-                            </div>
-
-                        </div>
-                        <div className="row">
-                            <span style={{color: "#FF4136"}}>{Object.values(errors)}</span>
-                        </div>
+                           </div>
 
 
 
-                    </form>
-                </div>
-            </div>
+                           <div className="row">
 
-        );
+                               <div className="send-data">
+                                   <input  type='submit' value="Submit"/>
+
+                               </div>
+
+                           </div>
+                           <div className="row">
+                               <span style={{color: "#FF4136"}}>{Object.values(errors)}</span>
+                           </div>
+
+
+
+                       </form>
+                   </div>
+               </div>
+
+           );
+       } else {
+           return <span>Loading...</span>;
+       }
+
     }
+
 
 
 

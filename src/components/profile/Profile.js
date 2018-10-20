@@ -29,8 +29,8 @@ class Profile extends Component {
         const {age, weight, height, displayName, gender, displayAvatar} = this.state
         const heightSquare = Number(height * 0.01) * Number(height * 0.01);
         const basicData = {
-            user: true,
             profileAge: age,
+            profileGender: gender,
             profileWeight: weight,
             profileHeight: height,
             profileDisplayAvatar: displayAvatar,

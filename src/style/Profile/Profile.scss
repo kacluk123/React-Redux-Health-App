@@ -24,6 +24,16 @@
         }
     }
 
+
+}
+.weight{
+    position: relative;
+        &:after{
+            content: "Weight";
+            position: absolute;
+            font-size: 30px;
+        }
+
 }
 .gender{
     font-weight: lighter;
@@ -52,6 +62,7 @@
             color: white;
         }
     }
+
 
 }
 .send-data{
