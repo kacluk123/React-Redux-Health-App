@@ -102,7 +102,6 @@ class Profile extends Component {
 
                                        <input onChange={this.onChange} ref={this.weight} defaultValue={profileWeight}  type="number" name='weight'
                                               placeholder='Weight'/>
-
                                        <input onChange={this.onChange} ref={this.age} defaultValue={profileAge} type="number" name='age' placeholder="Age"/>
                                    </div>
 

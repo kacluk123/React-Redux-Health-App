@@ -1,0 +1,61 @@
+@mixin input($width){
+        margin: 20px;
+        width: $width;
+        background: transparent;
+        border: none;
+        border-bottom: 2px solid white;
+        font-weight: lighter;
+        font-size: 20px;
+        color: white;
+        font-family: 'Open Sans', sans-serif;
+        &::placeholder{
+            color: white;
+            font-weight: lighter;
+        }
+        &:focus{
+            background: transparent;
+            border-bottom: 2px solid #393f4d;
+            outline: none;
+
+        }
+
+}
+.add-food{
+        display: inline-flex;
+        width: 10%;
+        padding: 10px;
+        justify-content: center;
+        outline: none;
+        border: none;
+        font-weight: lighter;
+        color: #393f4d;
+        background-color: black;
+        font-family: 'Open Sans', sans-serif;
+        text-transform: uppercase;
+        cursor: pointer;
+        font-size: 20px;
+        letter-spacing: 3px;
+        &:hover{
+            color: white;
+        }
+
+}
+.form-food{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+
+}
+.form-food-container{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+
+}
+.input-food{
+    @include input(70%)
+}
+.input-calories{
+    @include input(20%)
+}
