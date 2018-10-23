@@ -1,9 +1,17 @@
 import React, {Component} from 'react';
+import { firebaseConnect} from 'react-redux-firebase'
+
 import NewFood from './NewFood'
+
+
+
+
+
 class MyDiet extends Component {
     state = {
         food : '',
         calories : '',
+        name : '',
         foods : [],
     }
     onChange = (e) =>{
@@ -15,9 +23,14 @@ class MyDiet extends Component {
         const newFood = {food,calories}
         this.setState({foods: [...this.state.foods, newFood]})
     }
+    onClick = () =>{
+        const {name, foods} = this.state
+        const {firebase} = this.props
+        firebase.updateProfile({diet: {[name]: foods}})
+    }
 
     render() {
-        const {food, calories,foods} = this.state
+        const {food, calories,foods, name} = this.state
 
         return (
             <div className="container">
@@ -29,13 +42,14 @@ class MyDiet extends Component {
                         </form>
                             <ul>
                                 {foods.map((el)=>
-                                <li>{el.food}</li>
+                                <li>{el.food}{el.calories}</li>
                                 )}
                             </ul>
 
 
+                        <input onChange={this.onChange} value={name} className="input-calories"name="name" placeholder="Diet name" type="text"/>
 
-                        <button className="add-food">Add Diet</button>
+                        <button onClick={this.onClick} className="add-food">Add Diet</button>
                     </div>
 
 
@@ -47,4 +61,4 @@ class MyDiet extends Component {
 }
 
 
-export default MyDiet;
+export default (firebaseConnect())(MyDiet);
