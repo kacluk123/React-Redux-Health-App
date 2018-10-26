@@ -23,16 +23,21 @@ class MyDiet extends Component {
     onSubmit = (e) =>{
         e.preventDefault();
         const {food, calories} = this.state
-        const newFood = {food,calories,}
+        const newFood = {food,calories: Number(calories), id:uuid() }
         this.setState({foods: [...this.state.foods, newFood]})
     }
     onClick = () =>{
         const {name, foods} = this.state
-        const diet = [...foods, {id: uuid()}]
+        const diet = {arr: [...foods], id: uuid()}
+        console.log(diet)
         const {firebase} = this.props
         firebase.updateProfile({diet: {[name]: diet}})
     }
-
+    onDelete = (id) =>{
+        this.setState({
+            foods: this.state.foods.filter((el)=> el.id !== id )
+        })
+}
     render() {
         const {food, calories,foods, name} = this.state
         const {diet} = this.props
@@ -47,19 +52,16 @@ class MyDiet extends Component {
                             <input onChange={this.onChange} value={calories} className="input-calories"name="calories" placeholder="Calories" type="text"/>
                             <button className="add-food">Add</button>
                         </form>
-                        <ul className="food-ul">
+                        <ol className="food-ul">
                             {foods.map((el)=>
-                                <li>{el.food}{el.calories}</li>
+                                <li key={el.id}>{el.food}<span className="food-calories">{el.calories} Cal. <i onClick={this.onDelete.bind(this, el.id)} style={{color: 'white', paddingLeft: '5px', cursor: 'pointer'}} className="far fa-trash-alt"></i></span></li>
                             )}
-                        </ul>
-                        <ul className="food-ul">
-                            {diet.adas.map((el)=>
-                                <li>{el.food}{el.calories}</li>
-                            )}
-                        </ul>
+                        </ol>
 
-                        <input onChange={this.onChange} value={name} className="input-calories"name="name" placeholder="Diet name" type="text"/>
 
+                        <input onChange={this.onChange} value={name} className="input-calories" name="name" placeholder="Diet name" type="text"/>
+
+                        <span className="food-calories">Total calories:{foods.length > 0 ? foods.reduce((a,b)=>{ return a + b.calories }, 0) : null}</span>
                         <button onClick={this.onClick} className="add-food">Add Diet</button>
                     </div>
 

@@ -50,19 +50,27 @@
 .food-ul{
     padding: 0;
     margin: 0;
-    list-style: none;
     width: 100%;
+
     li{
         font-family: 'Open Sans', sans-serif;
         color: white;
         padding: 10px  0 10px 0;
-        margin: 40px;
+        margin: 0 40px 0 40px;
         font-size: 20px;
-        border: 2px  solid white;
+        border: 1px  solid white;
+
 
 
 
     }
+}
+.food-calories{
+    font-weight: 400;
+    color: #FF4136;
+    font-size: 20px;
+    float: right;
+
 }
 .form-food-container{
     width: 40%;
