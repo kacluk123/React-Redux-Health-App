@@ -14,7 +14,7 @@
         }
         &:focus{
             background: transparent;
-            border-bottom: 2px solid #393f4d;
+            border-bottom: 2px solid #CAE4DB;
             outline: none;
 
         }
@@ -76,6 +76,32 @@
     width: 40%;
     display: flex;
     justify-content: center;
+
+}
+.food-add{
+
+        display: inline-flex;
+        width: 10%;
+        //margin-bottom: 4px;
+        //margin-top: 5px;
+        justify-content: center;
+        outline: none;
+        background-color: transparent;
+        text-transform: uppercase;
+        cursor: pointer;
+        letter-spacing: 3px;
+        border: 2px solid white;
+        font-weight: 400;
+        color: white;
+        border-radius: 20px;
+        font-size: 20px;
+        text-decoration: none;
+        transition: 0.3s;
+        font-family: 'Open Sans', sans-serif;
+        &:hover{
+            color: #FF4136;
+            border: 2px solid #FF4136;
+        }
 
 }
 .input-food{

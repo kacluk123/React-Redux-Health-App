@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import Navbar from './components/layout/Navbar'
 import MainProfile from './components/profile/MainProfile'
 import EditProfile from './components/profile/EditProfile'
-
+import AllDiets from './components/AllDiets/AllDiets'
 import MyDiet from './components/mydiet/MyDiet'
 import WorkoutPlan from './components/workoutplan/WorkoutPlan'
 import Login from './components/login/Login'
@@ -31,6 +31,7 @@ class App extends Component {
 
                             <Route component={UserIsAuthenticated(MainProfile)} exact path="/profile"/>
                             <Route component={UserIsAuthenticated(MyDiet)} exact path="/diet"/>
+                            <Route component={UserIsAuthenticated(AllDiets)} exact path="/alldiets"/>
                             <Route component={UserIsAuthenticated(EditProfile)} exact path="/editprofile"/>
                             <Route component={UserIsAuthenticated(WorkoutPlan)} exact path="/workout"/>
                             <Route component={UserIsNotAuthenticated(Login)} exact path="/login"/>
