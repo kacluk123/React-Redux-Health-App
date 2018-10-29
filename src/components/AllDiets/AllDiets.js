@@ -7,15 +7,27 @@ import OneDiet from './OneDiet'
 import {firestoreConnect} from "react-redux-firebase";
 
 class AllDiets extends Component {
+    state = {
+        search: ''
+    }
+    onChange = (e) =>{
+        this.setState({[e.target.name]: e.target.value.substr(0,20)})
+    }
     render() {
         const { diet, profile } = this.props
-            console.log(diet)
         if(profile && diet !== undefined){
+            console.log(Object.values(diet))
+            let filter = Object.values(diet).filter((dietItem)=>{
+                return dietItem.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1})
+            console.log(filter)
             return (
                 <div className="container">
                     <div className="card">
-                        <div>
-                            {Object.keys(diet).map((el, i)=> <OneDiet key={i} name={el}/>)}
+                        <div style={{width: '100%', display: 'flex', justifyContent: 'center'}}>
+                        <input className="search-input" placeholder="Search diet" onChange={this.onChange} type="text" name="search"/>
+                        </div>
+                            <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
+                                {filter.map((el)=> <OneDiet id={el.id} whole={el} totalCalories={el.totalCalories} foods={el.arr} name={el.name}/>)}
                         </div>
                     </div>
                 </div>

@@ -14,6 +14,7 @@ class MyDiet extends Component {
         name: '',
         foods: [],
         totalCalories:'',
+        id : uuid(),
 
     }
     onChange = (e) => {
@@ -37,11 +38,13 @@ class MyDiet extends Component {
         }
 
     onClick = () => {
+       const {id} = this.state
         const {name, foods, totalCalories} = this.state
-        const diet = {arr: [...foods], id: uuid(), totalCalories: this.totalCalories()}
+        const diet = {arr: [...foods], id: id, name, totalCalories: this.totalCalories()}
 
         const {firebase} = this.props
-        firebase.updateProfile({diet: {[name]: diet}})
+        firebase.updateProfile({diet: {[id]: diet}})
+            .then(()=> this.setState({id: uuid()}))
     }
     onDelete = (id) => {
         this.setState({
