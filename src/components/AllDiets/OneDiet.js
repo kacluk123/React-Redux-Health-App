@@ -11,8 +11,8 @@ class OneDiet extends Component {
     render() {
         const {name, foods, id, diet, firebase, whole} = this.props
 
-       const x = {...whole, name: 'elo'}
-        console.log(x)
+       // const x = {...whole, name: 'elo'}
+       //  console.log(x)
         // firebase.updateProfile({diet: {[id]: x }})
 
         return (
