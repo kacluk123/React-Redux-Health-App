@@ -1,19 +1,18 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {firebaseConnect, firestoreConnect} from "react-redux-firebase";
+import {sendId} from "../../actions/IDActions";
 import {connect} from "react-redux";
+import {Link} from 'react-router-dom'
 import {compose} from "redux";
-import uuid from "uuid";
-
 class OneDiet extends Component {
 
+    onSend = (el) => {
+        this.props.sendId(el)
+    }
 
     render() {
-        const {name, foods, id, diet, firebase, whole} = this.props
-
-       // const x = {...whole, name: 'elo'}
-       //  console.log(x)
-        // firebase.updateProfile({diet: {[id]: x }})
+        const {name, foods, id, whole} = this.props
 
         return (
 
@@ -23,8 +22,16 @@ class OneDiet extends Component {
                 <div style={{width: '100%', display: 'flex', justifyContent:'center'}}>
                     <span className="food-calories">
                     {this.props.totalCalories} Calories
-                    </span></div>
+                    </span>
+                </div>
 
+                <div style={{display: 'flex', width: '100%', height: '100%', justifyContent: 'flex-end', alignItems: 'flex-end'}}>
+
+                    <Link to={`/edit/${id}`}> <span style={{marginBottom: '25px'}}><i onClick={this.onSend.bind(this, whole)} style={{fontSize: '40px'}}className="far fa-edit"></i></span>
+
+                   </Link>
+
+                </div>
             </div>
         );
     }
@@ -36,5 +43,5 @@ export default compose(firestoreConnect(), firebaseConnect(),
     connect((state) => ({
         diet: state.firebase.profile.diet,
         profile: state.firebase.profile,
-
-    })))(OneDiet);
+        dietID: state.idRed,
+    }), { sendId }))(OneDiet);

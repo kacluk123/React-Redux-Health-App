@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { createStore, combineReducers, compose } from 'redux'
 import { reactReduxFirebase, firebaseReducer } from 'react-redux-firebase'
 import firebase from 'firebase'
+import IDReducer from './reducers/IDReducer'
 import { reduxFirestore, firestoreReducer } from 'redux-firestore' // <- needed if using firestore
 import 'firebase/firestore' // <- needed if using firestore
 
@@ -41,7 +42,8 @@ const createStoreWithFirebase = compose(
 // Add firebase to reducers
 const rootReducer = combineReducers({
         firebase: firebaseReducer,
-        firestore: firestoreReducer // <- needed if using firestore
+        firestore: firestoreReducer,
+        idRed: IDReducer ,// <- needed if using firestore
 })
 
 // Create store with reducers and initial state
