@@ -43,7 +43,7 @@ const createStoreWithFirebase = compose(
 const rootReducer = combineReducers({
         firebase: firebaseReducer,
         firestore: firestoreReducer,
-        idRed: IDReducer ,// <- needed if using firestore
+        idRed: IDReducer ,
 })
 
 // Create store with reducers and initial state

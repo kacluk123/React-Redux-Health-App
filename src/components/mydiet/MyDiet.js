@@ -8,15 +8,23 @@ import {connect} from "react-redux";
 
 
 class MyDiet extends Component {
-    state = {
-        food: '',
-        calories: '',
-        name: '',
-        foods: [],
-        totalCalories:'',
-        id : uuid(),
+    constructor(props) {
+        super(props);
+        this.state = {
+            food: '',
+            calories: '',
+            name: '',
+            foods: [],
+            totalCalories:'',
+            id : uuid(),
+            input: false,
+
+        }
+
+            this.state.foods.forEach(el=> this[el.id] =  React.createRef() )
 
     }
+
     onChange = (e) => {
         this.setState({[e.target.name]: e.target.value})
     }
@@ -51,11 +59,23 @@ class MyDiet extends Component {
             foods: this.state.foods.filter((el) => el.id !== id)
         })
     }
+    editDiet = (id, calories) =>{
+
+
+        const dietChange = {
+            id,
+            calories,
+            food: this[id].current.value,
+        }
+        console.log(dietChange)
+        this.setState({
+            input: !this.state.input
+        })
+    }
 
     render() {
-        const {food, calories, foods, name} = this.state
+        const {food, calories, foods, name, input} = this.state
         const {profile} = this.props
-        console.log(this.totalCalories())
         if (profile) {
             return (
                 <div className="container">
@@ -69,10 +89,22 @@ class MyDiet extends Component {
                         </form>
                         <ol className="food-ul">
                             {foods.map((el) =>
-                                <li key={el.id}>{el.food}<span className="food-calories">{el.calories} Cal. <i
-                                    onClick={this.onDelete.bind(this, el.id)}
-                                    style={{color: 'white', paddingLeft: '5px', cursor: 'pointer'}}
-                                    className="far fa-trash-alt"></i></span></li>
+                                <li key={el.id}>
+                                    <div style={{float: 'right'}}>
+                                        <i
+                                            onClick={this.onDelete.bind(this, el.id)}
+                                            style={{color: 'white', paddingLeft: '5px', cursor: 'pointer'}}
+                                            className="far fa-trash-alt">
+                                        </i>
+                                        <i onClick={this.editDiet.bind(this, el.id, el.calories)}
+                                           style={{color: 'white', paddingLeft: '5px', cursor: 'pointer'}} className="far fa-edit"></i>
+                                    </div>
+
+
+                                    {input ? <input ref={this[el.id]} defaultValue={el.food}  type="text"/> : <React.Fragment><span>{el.food}</span>
+                                        <span className="food-calories">{el.calories}Cal.</span></React.Fragment>}
+
+                                </li>
                             )}
                         </ol>
                         <div style={{display: 'flex', justifyContent: 'center', width: '100%'}}>
