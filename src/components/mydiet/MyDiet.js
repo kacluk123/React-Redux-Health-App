@@ -21,9 +21,16 @@ class MyDiet extends Component {
 
         }
 
-            this.state.foods.forEach(el=> this[el.id] =  React.createRef() )
+
 
     }
+    onChangeX = (index, food, calories, id) => {
+        this.setState(prevState => {
+            const foods = [...prevState.foods];
+            foods[index] = {food, calories,id };
+            return { foods };
+        });
+    };
 
     onChange = (e) => {
         this.setState({[e.target.name]: e.target.value})
@@ -60,14 +67,6 @@ class MyDiet extends Component {
         })
     }
     editDiet = (id, calories) =>{
-
-
-        const dietChange = {
-            id,
-            calories,
-            food: this[id].current.value,
-        }
-        console.log(dietChange)
         this.setState({
             input: !this.state.input
         })
@@ -88,7 +87,7 @@ class MyDiet extends Component {
                             <button className="food-add">Add</button>
                         </form>
                         <ol className="food-ul">
-                            {foods.map((el) =>
+                            {foods.map((el, index) =>
                                 <li key={el.id}>
                                     <div style={{float: 'right'}}>
                                         <i
@@ -101,7 +100,7 @@ class MyDiet extends Component {
                                     </div>
 
 
-                                    {input ? <input ref={this[el.id]} defaultValue={el.food}  type="text"/> : <React.Fragment><span>{el.food}</span>
+                                    {input ? <input onChange={event => this.onChangeX(index, event.target.value ,el.calories, el.id)} value={el.food}  type="text"/> : <React.Fragment><span>{el.food}</span>
                                         <span className="food-calories">{el.calories}Cal.</span></React.Fragment>}
 
                                 </li>
