@@ -31,6 +31,13 @@ class MyDiet extends Component {
             return { foods };
         });
     };
+    onChangeG = (index, calories, food, id) => {
+        this.setState(prevState => {
+            const foods = [...prevState.foods];
+            foods[index] = {food, calories,id };
+            return { foods };
+        });
+    };
 
     onChange = (e) => {
         this.setState({[e.target.name]: e.target.value})
@@ -100,7 +107,13 @@ class MyDiet extends Component {
                                     </div>
 
 
-                                    {input ? <input onChange={event => this.onChangeX(index, event.target.value ,el.calories, el.id)} value={el.food}  type="text"/> : <React.Fragment><span>{el.food}</span>
+                                    {input ?  <div><input className="input-food-edit" onChange={event => this.onChangeX(index, event.target.value ,el.calories, el.id)}
+                                                          value={el.food}  type="text"/>
+
+
+                                            <input className="input-calories-edit" onChange={ev => this.onChangeG(index, ev.target.value ,el.food, el.id)}
+                                                   value={el.calories}  type="text"/></div>
+                                        : <React.Fragment><span>{el.food}</span>
                                         <span className="food-calories">{el.calories}Cal.</span></React.Fragment>}
 
                                 </li>

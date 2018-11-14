@@ -110,3 +110,16 @@
 .input-calories{
     @include input(20%)
 }
+.input-food-edit{
+    @include input(40%);
+
+    margin: 0 5px 0 0;
+
+
+}
+.input-calories-edit{
+    @include input(20%);
+
+    margin: 0 5px 0 0;
+
+}
