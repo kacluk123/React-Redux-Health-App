@@ -9,14 +9,8 @@ import {firebaseConnect, firestoreConnect} from "react-redux-firebase";
 class MainProfile extends Component {
 
 
-
-
-
-
     render() {
-         return (this.props.info ? <UserProfile/> : <Profile/>);
-
-
+        return (this.props.info ? <UserProfile/> : <Profile/>);
 
 
     }

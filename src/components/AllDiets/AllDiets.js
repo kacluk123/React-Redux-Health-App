@@ -24,7 +24,6 @@ class AllDiets extends Component {
         };
         const { diet, profile } = this.props
         if(profile && diet !== undefined){
-            console.log(Object.values(diet))
             let filter = Object.values(diet).filter((dietItem)=>{
                 return dietItem.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1})
             return (

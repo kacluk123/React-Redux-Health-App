@@ -146,7 +146,7 @@ class MyDiet extends Component {
 
 export default compose(firestoreConnect(), firebaseConnect(),
     connect((state, props) => ({
-        info: state.firebase.profile.info,
-        diet: state.firebase.profile.diet,
-        profile: state.firebase.profile,
-    })))(MyDiet);
+    info: state.firebase.profile.info,
+    diet: state.firebase.profile.diet,
+    profile: state.firebase.profile,
+})))(MyDiet);

@@ -10,7 +10,10 @@ class OneDiet extends Component {
     onSend = (el) => {
         this.props.sendId(el)
     }
-
+    onDelete = () =>{
+        const {firebase, diet, id} = this.props
+        firebase.updateProfile({diet: Object.values(diet).filter((el)=> el.id !== id) })
+    }
     render() {
         const {name, foods, id, whole} = this.props
 
@@ -25,13 +28,19 @@ class OneDiet extends Component {
                     </span>
                 </div>
 
-                <div style={{display: 'flex', width: '100%', height: '100%', justifyContent: 'flex-end', alignItems: 'flex-end'}}>
+                <div style={{display: 'flex', width: '100%' ,height: '100%', padding: '10px' ,justifyContent: 'space-between', alignItems: 'flex-end'}}>
 
-                    <Link to={`/edit/${id}`}> <span style={{marginBottom: '25px'}}><i onClick={this.onSend.bind(this, whole)} style={{fontSize: '40px'}}className="far fa-edit"></i></span>
+                    <Link style={{color: '#393f4d'}}to={`/edit/${id}`}> <span>
 
-                   </Link>
+                        <i onClick={this.onSend.bind(this, whole)} style={{fontSize: '40px'}}className="far fa-edit"></i></span>
+                    </Link>
 
+                    <button className="share">Share</button>
+
+
+                    <div onClick={this.onDelete} style={{fontSize: '40px', display: 'block', height: '47px',color: '#393f4d' }} ><i className="far fa-trash-alt"></i></div>
                 </div>
+
             </div>
         );
     }
