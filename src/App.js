@@ -16,7 +16,6 @@ import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import {firestoreConnect} from 'react-redux-firebase';
-
 import {UserIsAuthenticated, UserIsNotAuthenticated} from "./auth";
 import store from './store';
 class App extends Component {
@@ -27,9 +26,7 @@ class App extends Component {
                 <Router>
                     <div style={{display: 'flex'}}>
                         <Navbar/>
-
                         <Switch>
-
                             <Route component={UserIsAuthenticated(MainProfile)} exact path="/profile"/>
                             <Route component={UserIsAuthenticated(MyDiet)} exact path="/diet"/>
                             <Route component={UserIsAuthenticated(AllDiets)} exact path="/alldiets"/>
@@ -37,6 +34,9 @@ class App extends Component {
                             <Route component={UserIsAuthenticated(WorkoutPlan)} exact path="/workout"/>
                             <Route component={UserIsNotAuthenticated(Login)} exact path="/login"/>
                             <Route component={UserIsAuthenticated(EditDiet)} exact path="/edit/:id"/>
+                            <Route component={UserIsAuthenticated(EditDiet)} exact path="/edit/:id"/>
+                            {/*<Route component={UserIsAuthenticated(UsersDiet)} exact path="/usersdiet"/>*/}
+
                         </Switch>
 
 

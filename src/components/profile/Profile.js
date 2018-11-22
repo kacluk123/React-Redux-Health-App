@@ -61,30 +61,15 @@ class Profile extends Component {
         } else {
             firebase.updateProfile({ basicInfo: basicData, info: true})
         }
-
-
-
-
-
-
-
-
-
-
-    }
-
-    onChange = e => {
+        }
+        onChange = e => {
         this.setState({
             [e.target.name]: e.target.value,
         })
     }
-
     render() {
         const {age, weight, height, displayName, displayAvatar, errors} = this.state;
-
-
-
-                    return (
+                return (
                         <div className="formContainer">
                             <div className="col5">
                                 <form onSubmit={this.sendData}>
@@ -139,20 +124,12 @@ class Profile extends Component {
                                     <div className="row">
                                         <span style={{color: "#FF4136"}}>{Object.values(errors)}</span>
                                     </div>
-
-
-
                                 </form>
                             </div>
                         </div>
 
                     );
                 }
-
-
-
-
-
 }
 Profile.propTypes = {
     auth: PropTypes.object.isRequired,
