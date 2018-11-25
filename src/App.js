@@ -22,11 +22,13 @@ import {sendId} from "./actions/IDActions";
 class App extends Component {
 
     render() {
+
+
         return (
 
-            <Provider store={store}>
+
                 <Router>
-                    <div style={{display: 'flex'}} >
+                    <div   className={`${this.props.dietID ? "blackScreen" : ""}`} style={{display: 'flex'}} >
                         <Navbar/>
                         <Switch>
                             <Route component={UserIsAuthenticated(MainProfile)} exact path="/profile"/>
@@ -41,9 +43,11 @@ class App extends Component {
                         </Switch>
                     </div>
                 </Router>
-            </Provider>
+
         )
     }
 }
 
-export default (App)
+export default connect((state)=>({
+    dietID: state.idRed.idDiet,
+}))(App)

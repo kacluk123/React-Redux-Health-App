@@ -5,6 +5,7 @@ import {sendId} from "../../actions/IDActions";
 import {connect} from "react-redux";
 import {Link} from 'react-router-dom'
 import {compose} from "redux";
+
 class OneDiet extends Component {
     state = {
         share : false,

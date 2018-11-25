@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import OneDiet from './OneDiet'
 import {sendId} from "../../actions/IDActions";
 import {firestoreConnect} from "react-redux-firebase";
+import store from "../../store";
 
 class AllDiets extends Component {
     state = {
@@ -18,7 +19,7 @@ class AllDiets extends Component {
     }
     closeWindow =()=>{
         this.props.sendId('')
-        localStorage.setItem('myClass', "")
+
     }
     shareDiet = () =>{
         this.props.firestore.add({ collection: 'diets' },

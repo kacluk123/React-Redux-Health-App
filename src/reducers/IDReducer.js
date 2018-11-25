@@ -2,6 +2,7 @@ import {SEND_ID} from '../types/IDTypes'
 const initialState = {
     idDiet: '',
     diet: '',
+    elo: 'elo'
 }
 export default function (state = initialState, action) {
     switch (action.type) {
