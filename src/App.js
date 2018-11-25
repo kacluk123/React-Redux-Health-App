@@ -18,13 +18,15 @@ import { Provider } from 'react-redux';
 import {firestoreConnect} from 'react-redux-firebase';
 import {UserIsAuthenticated, UserIsNotAuthenticated} from "./auth";
 import store from './store';
+import {sendId} from "./actions/IDActions";
 class App extends Component {
+
     render() {
         return (
 
             <Provider store={store}>
                 <Router>
-                    <div style={{display: 'flex'}}>
+                    <div style={{display: 'flex'}} >
                         <Navbar/>
                         <Switch>
                             <Route component={UserIsAuthenticated(MainProfile)} exact path="/profile"/>
@@ -36,10 +38,7 @@ class App extends Component {
                             <Route component={UserIsAuthenticated(EditDiet)} exact path="/edit/:id"/>
                             <Route component={UserIsAuthenticated(EditDiet)} exact path="/edit/:id"/>
                             {/*<Route component={UserIsAuthenticated(UsersDiet)} exact path="/usersdiet"/>*/}
-
                         </Switch>
-
-
                     </div>
                 </Router>
             </Provider>
@@ -47,4 +46,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default (App)

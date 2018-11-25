@@ -8,10 +8,19 @@
 body {
     font-family: 'Open Sans', sans-serif;
     background-color:  #CAE4DB;
-
 }
-
-
+.elo{
+    &:after{
+        content: '';
+        position: absolute;
+        width: 100%;
+        top: 0;
+        height: 100vh;
+        z-index: 8888;
+        background-color: #282c34;
+        opacity: 0.9;
+    }
+}
 *{
     box-sizing: border-box;
 }

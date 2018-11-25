@@ -1,7 +1,7 @@
 import {SEND_ID} from '../types/IDTypes'
-
 const initialState = {
-    idDiet: ''
+    idDiet: '',
+    diet: '',
 }
 export default function (state = initialState, action) {
     switch (action.type) {
@@ -10,6 +10,7 @@ export default function (state = initialState, action) {
                 ...state,
                 idDiet: action.id
             }
+
             default:
             return state;
     }
