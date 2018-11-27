@@ -19,14 +19,16 @@ class AllDiets extends Component {
     }
     closeWindow =()=>{
         this.props.sendId('')
-
+        console.log(        this.props.firestore.get({ collection: 'diets' })
+    )
     }
     shareDiet = () =>{
-        this.props.firestore.add({ collection: 'diets' },
+        this.props.firestore.set({ collection: 'diets', doc: `${this.props.dietID.idDiet.id}` },
             {...this.props.dietID.idDiet, description: this.state.description,
-                profileName: this.props.profile.basicInfo.profileDisplayName,
-                profileAvatar: this.props.profile.basicInfo.profileDisplayAvatar,
-            })
+            profileName: this.props.profile.basicInfo.profileDisplayName,
+            profileAvatar: this.props.profile.basicInfo.profileDisplayAvatar,
+        })
+
         this.setState({description: ''})
         this.props.sendId('')
     }
@@ -34,7 +36,7 @@ class AllDiets extends Component {
         this.setState({description: e.target.value })
     }
     render() {
-        console.log(this.props.dietID.idDiet)
+        console.log(this.props.firestore.diets)
         const settings = {
             dots: true,
             infinite: false,

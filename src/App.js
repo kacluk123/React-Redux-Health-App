@@ -5,6 +5,7 @@ import MainProfile from './components/profile/MainProfile'
 import EditProfile from './components/profile/EditProfile'
 import AllDiets from './components/AllDiets/AllDiets'
 import EditDiet from './components/AllDiets/EditDiet'
+import UsersDiet from './components/usersdiet/usersdiet'
 import MyDiet from './components/mydiet/MyDiet'
 import WorkoutPlan from './components/workoutplan/WorkoutPlan'
 import Login from './components/login/Login'
@@ -39,7 +40,7 @@ class App extends Component {
                             <Route component={UserIsNotAuthenticated(Login)} exact path="/login"/>
                             <Route component={UserIsAuthenticated(EditDiet)} exact path="/edit/:id"/>
                             <Route component={UserIsAuthenticated(EditDiet)} exact path="/edit/:id"/>
-                            {/*<Route component={UserIsAuthenticated(UsersDiet)} exact path="/usersdiet"/>*/}
+                            <Route component={UserIsAuthenticated(UsersDiet)} exact path="/usersdiet"/>
                         </Switch>
                     </div>
                 </Router>

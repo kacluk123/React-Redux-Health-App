@@ -31,7 +31,6 @@ class OneDiet extends Component {
     }
     render() {
         const {name, foods, id, whole} = this.props
-        console.log(this.props.diets)
         return (
 
             <div className="diet-container" style={{position: 'relative'}}>
