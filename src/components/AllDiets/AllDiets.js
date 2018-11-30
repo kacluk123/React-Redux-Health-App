@@ -27,6 +27,7 @@ class AllDiets extends Component {
             {...this.props.dietID.idDiet, description: this.state.description,
             profileName: this.props.profile.basicInfo.profileDisplayName,
             profileAvatar: this.props.profile.basicInfo.profileDisplayAvatar,
+                likes: [], comments: []
         })
 
         this.setState({description: ''})
