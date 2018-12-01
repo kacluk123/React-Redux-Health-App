@@ -1,0 +1,19 @@
+.UserDietContainer{
+    position: absolute;
+    z-index: 9999;
+    width: 500px;
+    display: flex;
+    height: 700px;
+    background-color: whitesmoke;
+    border-radius: 30px;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+}
+
+.user-diet-name{
+    color: #393f4d;
+    font-weight: 600;
+    font-family: "Open Sans";
+    font-size: 20px;
+}
