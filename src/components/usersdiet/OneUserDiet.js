@@ -32,7 +32,8 @@ class OneUserDiet extends Component {
 OneUserDiet.propTypes = {};
 
 export default compose(
-    connect((state)=>({diets: state.firestore.ordered.diets,
+    connect((state)=>({
+        diets: state.firestore.ordered.diets,
         dietID: state.idRed,
     }), { sendId }))(OneUserDiet);
 
