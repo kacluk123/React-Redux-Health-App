@@ -7,7 +7,7 @@ import {connect} from "react-redux";
 
 class OneUserDiet extends Component {
     dietSend = (whole) =>{
-        this.props.sendId(whole)
+        this.props.sendId({...whole, edit: true})
     }
     render() {
         return (

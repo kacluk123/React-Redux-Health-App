@@ -13,11 +13,12 @@ class OneDiet extends Component {
 
     }
     onSend = (el) => {
-        this.props.sendId(el)
+
+        this.props.sendId({...el, edit: false})
     }
     sendDiet = (whole) =>{
-        localStorage.setItem('myClass', "elo")
-        this.props.sendId(whole)
+
+        this.props.sendId({...whole, edit: true})
 
     }
 

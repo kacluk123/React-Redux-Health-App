@@ -29,7 +29,7 @@ class App extends Component {
 
 
                 <Router>
-                    <div   className={`${this.props.dietID ? "blackScreen" : ""}`} style={{display: 'flex'}} >
+                    <div   className={`${this.props.dietID.edit  ? "blackScreen" : ""}`} style={{display: 'flex'}} >
                         <Navbar/>
                         <Switch>
                             <Route component={UserIsAuthenticated(MainProfile)} exact path="/profile"/>
@@ -38,7 +38,6 @@ class App extends Component {
                             <Route component={UserIsAuthenticated(EditProfile)} exact path="/editprofile"/>
                             <Route component={UserIsAuthenticated(WorkoutPlan)} exact path="/workout"/>
                             <Route component={UserIsNotAuthenticated(Login)} exact path="/login"/>
-                            <Route component={UserIsAuthenticated(EditDiet)} exact path="/edit/:id"/>
                             <Route component={UserIsAuthenticated(EditDiet)} exact path="/edit/:id"/>
                             <Route component={UserIsAuthenticated(UsersDiet)} exact path="/usersdiet"/>
                         </Switch>

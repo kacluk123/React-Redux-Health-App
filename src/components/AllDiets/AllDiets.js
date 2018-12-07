@@ -52,7 +52,7 @@ class AllDiets extends Component {
             return (
                 <div className="container">
                     <div className="card">
-                        {this.props.dietID.idDiet ? <div style={{
+                        {this.props.dietID.idDiet.edit ? <div style={{
                             zIndex: '9999',
                             position: 'absolute',
                             display: 'flex',

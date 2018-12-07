@@ -151,7 +151,7 @@ class EditDiet extends Component {
 export default compose(firestoreConnect(), firebaseConnect(),
     connect((state, props) => ({
         info: state.firebase.profile.info,
-        diet: state.firebase.profile.diet,
-        profile: state.firebase.profile,
-        id: state.idRed
-    })))(EditDiet);
+    diet: state.firebase.profile.diet,
+    profile: state.firebase.profile,
+    id: state.idRed
+})))(EditDiet);
