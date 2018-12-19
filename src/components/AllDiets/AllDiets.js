@@ -17,13 +17,14 @@ class AllDiets extends Component {
     onChange = (e) =>{
         this.setState({[e.target.name]: e.target.value.substr(0,20)})
     }
+
     closeWindow =()=>{
         this.props.sendId('')
         console.log(        this.props.firestore.get({ collection: 'diets' })
     )
     }
     shareDiet = () =>{
-        this.props.firestore.set({ collection: 'diets', doc: `${this.props.dietID.idDiet.id}` },
+        this.props.firestore.set({ collection: 'diets', doc: `${this.props.dietID.idDiet.id}`, subcollections: 'likes'},
             {...this.props.dietID.idDiet, description: this.state.description,
             profileName: this.props.profile.basicInfo.profileDisplayName,
             profileAvatar: this.props.profile.basicInfo.profileDisplayAvatar,

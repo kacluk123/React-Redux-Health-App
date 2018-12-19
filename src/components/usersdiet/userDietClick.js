@@ -6,24 +6,51 @@ import {connect} from "react-redux";
 import {sendId} from "../../actions/IDActions";
 
 class UserDietClick extends Component {
-    likeDiet = (diet) =>{
-        const newArr = [...this.props.dietID.idDiet.likes, this.props.profile.basicInfo.profileDisplayName ]
-        const updateLikes = {...diet, likes: newArr}
-        this.props.firestore.update({ collection: 'diets', doc: `${diet.id}`,}, updateLikes )
+    state = {
+        data : '',
+        className: "",
+    }
 
+
+    componentDidMount() {
+        this.props.firestore.setListeners([
+            {collection: 'diets'},
+            {collection: 'users'},
+        ])
+        this.setState({data: this.props.dietID.idDiet,
+            className: this.props.dietID.idDiet.likes.includes(this.props.profile.basicInfo.profileDisplayName)
+        ? "far fa-thumbs-up user-diet-no-like" : "far fa-thumbs-up user-diet-like"})
 
     }
 
-    closeWindow =()=>{
+
+
+    likeDiet = (diet) =>{
+        console.log(this.state.data)
+        const {likes} = this.state.data
+        const {data} = this.state
+        const {profileDisplayName} = this.props.profile.basicInfo
+        likes.includes(profileDisplayName) ?
+            this.setState({data: {...data, likes:[...likes.filter(el=> el !== profileDisplayName)]}, className: 'far fa-thumbs-up user-diet-like'}) :
+            this.setState({data: {...data, likes:[...likes, profileDisplayName]}, className: 'far fa-thumbs-up user-diet-no-like' })
+        }
+
+    closeWindow =(diet)=>{
+        this.props.firestore.update({ collection: 'diets', doc: `${this.state.data.id}`,}, this.state.data )
         this.props.sendId('')
     }
 
 
     render() {
         const {dietID} = this.props
+        console.log(this.state.data)
+
+
+
         return (
+
             <div className="UserDietContainer">
-                <i onClick={this.closeWindow} style={{alignSelf: 'flex-start',marginLeft: 'auto', cursor:'pointer', fontSize: '35px'}}className="fas fa-times"></i>
+                <i onClick={this.closeWindow.bind(this, dietID.idDiet)} style={{alignSelf: 'flex-start',marginLeft: 'auto', cursor:'pointer', fontSize: '35px'}}className="fas fa-times"></i>
 
                 <span className="user-diet-name">{dietID.idDiet.name}</span>
                 <ol>{dietID.idDiet.arr.map(el=>
@@ -38,8 +65,8 @@ class UserDietClick extends Component {
                     backgroundImage: `url(${dietID.idDiet.profileAvatar})`,
                     borderRadius: '50%',
                 }}></div>
-                <div style={{display: 'flex', paddingTop: '20px'}}> <span className="food-calories">Likes: {dietID.idDiet.likes.length}</span>
-                    <i className="far fa-thumbs-up user-diet-like" onClick={this.likeDiet.bind(this, dietID.idDiet)}></i></div>
+                <div style={{display: 'flex', paddingTop: '20px'}}> <span className="food-calories">Likes: {this.state.data.likes ? this.state.data.likes.length : []}</span>
+                    <i className={this.state.className} onClick={this.likeDiet.bind(this, dietID.idDiet)}></i></div>
 
 
             </div>
