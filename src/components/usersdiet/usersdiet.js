@@ -33,24 +33,28 @@ class UsersDiets extends Component {
 
         dietList = diets !== undefined ? [...diets] : [];
             console.log(dietList)
-            for (let i = 1; i <= Math.ceil(dietList.length / 8); i++) {
-                pageNumbers.push(i);
+
+        const perChunk = 9
+        const inputArray = [ ...dietList]
+        const x = inputArray.reduce((resultArray, item, index) => {
+            const chunkIndex = Math.floor(index/perChunk)
+
+            if(!resultArray[chunkIndex]) {
+                resultArray[chunkIndex] = []
             }
-            let page = 1;
-            dietList.map((el,i ) => {
-                el.pageNumber = page
-                if(i && !(i % 8)){
-                    page++
-                }
-            })
 
-            let paginatedArray = dietList.filter(el=> el.pageNumber === this.state.pageActive)
+            resultArray[chunkIndex].push(item)
 
+            return resultArray
+        }, [])
+        x.forEach((el,i)=> pageNumbers.push(i))
+
+        console.log(pageNumbers)
         return (
             <div className="container">
             <div className="card" style={{display: 'flex', justifyContent: 'center', flexWrap: 'wrap'}}>
                 {dietID.idDiet.edit ? <UserDietClick dietID={dietID} /> : null}
-                {diets !== undefined ? paginatedArray.map(el=> <OneUserDiet key={el.id}
+                {diets !== undefined ? x[this.state.pageActive].map(el=> <OneUserDiet key={el.id}
                                                                    dietName={el.name}
                                                                    totalCalories={el.totalCalories}
                                                                    description={el.description}
