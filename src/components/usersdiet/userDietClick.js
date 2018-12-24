@@ -38,6 +38,7 @@ class UserDietClick extends Component {
     closeWindow =(diet)=>{
         this.props.firestore.update({ collection: 'diets', doc: `${this.state.data.id}`,}, this.state.data )
         this.props.sendId('')
+        this.forceUpdate()
     }
 
 
