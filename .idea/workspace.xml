@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fc5459eb-5295-4f30-a880-5389dbe780d0" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AllDiets/EditDiet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AllDiets/EditDiet.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/usersdiet/userDietClick.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/usersdiet/userDietClick.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/usersdiet/usersdiet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/usersdiet/usersdiet.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/UsersDiet/UsersDiet.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/UsersDiet/UsersDiet.scss" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -83,8 +79,8 @@
       <file leaf-file-name="UsersDiet.scss" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/style/UsersDiet/UsersDiet.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="704">
-              <caret line="62" column="26" selection-start-line="62" selection-start-column="26" selection-end-line="62" selection-end-column="26" />
+            <state relative-caret-position="596">
+              <caret line="58" column="34" lean-forward="true" selection-start-line="58" selection-start-column="34" selection-end-line="58" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -388,16 +384,15 @@
       <workItem from="1545750720307" duration="132000" />
       <workItem from="1545840893040" duration="4458000" />
       <workItem from="1546009956097" duration="3631000" />
-      <workItem from="1546020213868" duration="3531000" />
+      <workItem from="1546020213868" duration="4154000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="377808000" />
+    <option name="totallyTimeSpent" value="378431000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12604167" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -782,8 +777,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/style/UsersDiet/UsersDiet.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="62" column="26" selection-start-line="62" selection-start-column="26" selection-end-line="62" selection-end-column="26" />
+        <state relative-caret-position="596">
+          <caret line="58" column="34" lean-forward="true" selection-start-line="58" selection-start-column="34" selection-end-line="58" selection-end-column="34" />
         </state>
       </provider>
     </entry>
