@@ -3,7 +3,7 @@
     z-index: 9999;
     width: 500px;
     display: flex;
-    height: 700px;
+    height: 870px;
     background-color: whitesmoke;
     border-radius: 30px;
     flex-direction: column;
@@ -36,5 +36,36 @@
     &:hover{
         color: black;
 
+    }
+}
+.comment-container{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    font-family: "Open Sans";
+    font-weight: 400;
+    font-size: 18px;
+}
+.comment-container-img{
+    width: 60px;
+    height: 60px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+
+}
+.comment-container-text-container{
+    display: flex;
+    font-family: "Open Sans";
+    flex-direction: column;
+    word-break: break-all;
+    span{
+        font-weight: 600;
+    }
+    p{
+        margin: 0;
+        font-size: 14px;
     }
 }

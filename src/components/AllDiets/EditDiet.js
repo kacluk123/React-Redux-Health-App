@@ -57,7 +57,9 @@ class EditDiet extends Component {
             const x = foods.reduce((a,b)=>{
                 return a + b.calories
             }, 0)
-            return x;
+            const strCut = x.toString()[0]
+            const str = x.toString()
+            return strCut === "0" ? Number(str.substring(1, str.length)) : x;
         }
     }
 

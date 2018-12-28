@@ -27,13 +27,13 @@ class UsersDiets extends Component {
     }
     pagePlus=()=>{
         const {diets} = this.props
-        const chunkIndex = Math.floor(diets.length/9)
+        const chunkIndex = Math.floor(diets.length/3)
         this.setState({pageActive: this.state.pageActive !== chunkIndex ? this.state.pageActive +1 : 0})
     }
     pageMinus=()=>{
         const {diets} = this.props
-        const chunkIndex = Math.floor(diets.length/9)
-        this.setState({pageActive: this.state.pageActive < 0 ? this.state.pageActive -1 : chunkIndex})
+        const chunkIndex = Math.floor(diets.length/3)
+        this.setState({pageActive: this.state.pageActive > 0 ? this.state.pageActive -1 : chunkIndex})
     }
 
     render() {
@@ -42,7 +42,7 @@ class UsersDiets extends Component {
         const pageNumbers = [];
         let dietList = [];
         dietList = diets !== undefined ? [...diets] : [];
-        const perChunk = 9
+        const perChunk = 3
         const inputArray = [ ...dietList]
         const x = inputArray.reduce((resultArray, item, index) => {
             const chunkIndex = Math.floor(index/perChunk)
@@ -69,22 +69,24 @@ class UsersDiets extends Component {
 
 
         <ul style={{display: 'flex', borderRadius: '20px', listStyle: "none", position: 'absolute', bottom: '-80px', left: '33.33333%',}}>
-            <li style={{fontSize: "30px"}}><i className="fas fa-angle-left" onClick={this.pageMinus}></i> </li>
+            <li style={{fontSize: "50px"}}><i className="fas fa-angle-left" onClick={this.pageMinus}></i> </li>
             {
-            pageNumbers.map(el=>
-
+            pageNumbers
+                .slice(this.state.pageActive, this.state.pageActive+4 )
+                .map(el=>
                 <li style={{fontSize: '30px',
-                textAlign: 'center', width: '50px',
-                height: '50px', border:
-                    '1px solid black',
-                background: "#393f4d",
-                cursor: 'pointer',
-            fontFamily: " 'Open Sans', sans-serif"}} onClick={this.pageChange.bind(this, el)}>{el}
-            </li>)
-            }
-            <li style={{fontSize: "30px"}}><i onClick={this.pagePlus} className="fas fa-angle-right"></i>  </li>
+                    textAlign: 'center', width: '50px',
+                    height: '50px', border:
+                        '1px solid black',
+                    background: "#393f4d",
+                    color: this.state.pageActive === el ? "#FF4136" : "black",
+                    cursor: 'pointer',
+                    fontFamily: " 'Open Sans', sans-serif"}} onClick={this.pageChange.bind(this, el)}>{el}
+                </li>)
+                }
+                <li style={{fontSize: "50px"}}><i onClick={this.pagePlus} className="fas fa-angle-right"></i>  </li>
             </ul>
-                </div>
+            </div>
             </div>
         );
 
