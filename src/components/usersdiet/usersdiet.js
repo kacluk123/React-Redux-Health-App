@@ -30,7 +30,7 @@ class UsersDiets extends Component {
         const chunkIndex = Math.floor(diets.length/3)
         this.setState({pageActive: this.state.pageActive !== chunkIndex ? this.state.pageActive +1 : 0})
     }
-    pageMinus=()=>{
+    pageMinus = () => {
         const {diets} = this.props
         const chunkIndex = Math.floor(diets.length/3)
         this.setState({pageActive: this.state.pageActive > 0 ? this.state.pageActive -1 : chunkIndex})
@@ -39,10 +39,10 @@ class UsersDiets extends Component {
     render() {
         const {diets, dietID} = this.props
         const {pageActive} = this.state
-        const pageNumbers = [];
         let dietList = [];
         dietList = diets !== undefined ? [...diets] : [];
         const perChunk = 3
+        const pageNumbers = [];
         const inputArray = [ ...dietList]
         const x = inputArray.reduce((resultArray, item, index) => {
             const chunkIndex = Math.floor(index/perChunk)

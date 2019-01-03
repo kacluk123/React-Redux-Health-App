@@ -10,6 +10,9 @@ class UserDietClick extends Component {
         data : '',
         className: "",
         comment: "",
+        pages: [],
+        pageActive: 1,
+        pagesNumber : 0,
     }
 
     componentDidMount() {
@@ -21,7 +24,19 @@ class UserDietClick extends Component {
             className: this.props.dietID.idDiet.likes.includes(this.props.profile.basicInfo.profileDisplayName)
         ? "far fa-thumbs-up user-diet-no-like" : "far fa-thumbs-up user-diet-like"})
     }
-
+    pageChange(el){
+        this.setState({pageActive: el})
+    }
+    pagePlus=()=>{
+        const {comments} = this.state.data
+        const chunkIndex = Math.floor(comments.length/3)
+        this.setState({pageActive: this.state.pageActive !== chunkIndex ? this.state.pageActive +1 : 0})
+    }
+    pageMinus = () => {
+        const {comments} = this.state.data
+        const chunkIndex = Math.floor(comments.length/3)
+        this.setState({pageActive: this.state.pageActive > 0 ? this.state.pageActive -1 : chunkIndex})
+    }
     onChange =(e)=>{
         this.setState({[e.target.name]: e.target.value})
     }
@@ -60,6 +75,17 @@ class UserDietClick extends Component {
         const {dietID} = this.props;
         const {comments} = this.state.data;
         console.log(comments)
+        const perChunk = 3
+        const pageNumbers = [];
+        const x = comments ? comments.reduce((resultArray, item, index) => {
+            const chunkIndex = Math.floor(index/perChunk)
+            if(!resultArray[chunkIndex]) {
+                resultArray[chunkIndex] = []
+            }
+            resultArray[chunkIndex].push(item)
+            return resultArray
+        }, []) : []
+        x.forEach((el,i)=> pageNumbers.push(i))
         return (
 
             <div className="UserDietContainer">
@@ -84,7 +110,7 @@ class UserDietClick extends Component {
                 <textarea name="comment" value={this.state.comment} onChange={this.onChange} style={{width: '100%', height: '100px', marginTop: '20px'}}></textarea>
                 <button className="share" onClick={this.addComment} style={{marginTop: '20px'}}>Add comment</button>
                 <ul className="comment-container">
-                    {comments ? comments.map((el,key)=> <li key={key}>
+                    {x[this.state.pageActive] !== undefined ? x[this.state.pageActive].map((el,key)=> <li key={key}>
                        <div style={{display: 'flex',}}>
                            <div style={{backgroundImage: `url(${el.authorAvatar})`,}} className="comment-container-img"></div>
                            <div className="comment-container-text-container">
@@ -93,6 +119,24 @@ class UserDietClick extends Component {
                            </div>
                        </div>
                         </li>) : []}
+                </ul>
+                <ul style={{display: 'flex', borderRadius: '20px', listStyle: "none", position: 'absolute', bottom: '-80px', left: '33.33333%',}}>
+                    <li style={{fontSize: "50px"}}><i className="fas fa-angle-left" onClick={this.pageMinus}></i> </li>
+                    {
+                        pageNumbers
+                            .slice(this.state.pageActive, this.state.pageActive+4 )
+                            .map(el=>
+                                <li style={{fontSize: '30px',
+                                    textAlign: 'center', width: '50px',
+                                    height: '50px', border:
+                                        '1px solid black',
+                                    background: "#393f4d",
+                                    color: this.state.pageActive === el ? "#FF4136" : "black",
+                                    cursor: 'pointer',
+                                    fontFamily: " 'Open Sans', sans-serif"}} onClick={this.pageChange.bind(this, el)}>{el}
+                                </li>)
+                    }
+                    <li style={{fontSize: "50px"}}><i onClick={this.pagePlus} className="fas fa-angle-right"></i>  </li>
                 </ul>
             </div>
         );

@@ -41,15 +41,22 @@
 .comment-container{
     margin: 0;
     padding: 0;
+
     list-style: none;
     width: 100%;
     font-family: "Open Sans";
     font-weight: 400;
     font-size: 18px;
+    li{
+        margin-top: 5px;
+    }
+
 }
 .comment-container-img{
-    width: 60px;
-    height: 60px;
+    min-width: 60px;
+    min-height: 60px;
+    max-width: 60px;
+    max-height: 60px;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -61,11 +68,13 @@
     font-family: "Open Sans";
     flex-direction: column;
     word-break: break-all;
+    margin-left: 15px;
     span{
         font-weight: 600;
     }
     p{
         margin: 0;
+        margin-top: 10px;
         font-size: 14px;
     }
 }
