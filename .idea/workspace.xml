@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="fc5459eb-5295-4f30-a880-5389dbe780d0" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/usersdiet/userDietClick.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/usersdiet/userDietClick.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mydiet/MyDiet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mydiet/MyDiet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/profile/EditProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/profile/EditProfile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/usersdiet/usersdiet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/usersdiet/usersdiet.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/style/UsersDiet/UsersDiet.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/UsersDiet/UsersDiet.scss" afterDir="false" />
     </list>
@@ -22,8 +23,8 @@
       <file leaf-file-name="usersdiet.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/usersdiet/usersdiet.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2160">
-              <caret line="80" column="42" lean-forward="true" selection-start-line="80" selection-start-column="42" selection-end-line="80" selection-end-column="42" />
+            <state relative-caret-position="-133">
+              <caret line="70" column="112" selection-start-line="70" selection-start-column="112" selection-end-line="70" selection-end-column="112" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -43,7 +44,7 @@
       <file leaf-file-name="AllDiets.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/AllDiets/AllDiets.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
+            <state relative-caret-position="-405">
               <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
             </state>
           </provider>
@@ -52,7 +53,7 @@
       <file leaf-file-name="OneDiet.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/AllDiets/OneDiet.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-270">
+            <state relative-caret-position="27">
               <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="49" />
             </state>
           </provider>
@@ -62,19 +63,7 @@
         <entry file="file://$PROJECT_DIR$/src/components/layout/Navbar.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="839">
-              <caret line="60" column="1" lean-forward="true" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="userDietClick.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/usersdiet/userDietClick.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="27" column="39" lean-forward="true" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
+              <caret line="60" column="1" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -82,8 +71,8 @@
       <file leaf-file-name="UsersDiet.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/style/UsersDiet/UsersDiet.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="461">
-              <caret line="56" column="21" lean-forward="true" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
+            <state relative-caret-position="108">
+              <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -100,20 +89,29 @@
       <file leaf-file-name="OneUserDiet.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/usersdiet/OneUserDiet.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-187">
+            <state>
               <caret column="7" selection-start-column="7" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MyDiet.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MyDiet.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/mydiet/MyDiet.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
+            <state relative-caret-position="189">
+              <caret line="70" column="30" lean-forward="true" selection-start-line="70" selection-start-column="30" selection-end-line="70" selection-end-column="30" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EditProfile.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/profile/EditProfile.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="675">
+              <caret line="69" column="8" selection-start-line="69" selection-start-column="8" selection-end-line="69" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -133,6 +131,7 @@
       <find>share</find>
       <find>diet-name</find>
       <find>idDiet</find>
+      <find>input-ca</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -151,14 +150,12 @@
         <option value="$PROJECT_DIR$/src/components/login/Login.js" />
         <option value="$PROJECT_DIR$/src/style/Navbar/Navbar.scss" />
         <option value="$PROJECT_DIR$/src/style/Login/Login.scss" />
-        <option value="$PROJECT_DIR$/src/components/profile/EditProfile.js" />
         <option value="$PROJECT_DIR$/src/components/mydiet/NewFood.js" />
         <option value="$PROJECT_DIR$/src/components/mydiet/AllDiets.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/style/Parts.scss" />
         <option value="$PROJECT_DIR$/src/reducers/IDReducers.js" />
         <option value="$PROJECT_DIR$/src/store.js" />
-        <option value="$PROJECT_DIR$/src/components/mydiet/MyDiet.js" />
         <option value="$PROJECT_DIR$/src/style/Profile/Profile.scss" />
         <option value="$PROJECT_DIR$/src/components/profile/MainProfile.js" />
         <option value="$PROJECT_DIR$/src/components/profile/Profile.js" />
@@ -179,8 +176,10 @@
         <option value="$PROJECT_DIR$/../testy/script.js" />
         <option value="$PROJECT_DIR$/src/components/AllDiets/EditDiet.js" />
         <option value="$PROJECT_DIR$/src/style/UsersDiet/UsersDiet.scss" />
-        <option value="$PROJECT_DIR$/src/components/usersdiet/usersdiet.js" />
         <option value="$PROJECT_DIR$/src/components/usersdiet/userDietClick.js" />
+        <option value="$PROJECT_DIR$/src/components/usersdiet/usersdiet.js" />
+        <option value="$PROJECT_DIR$/src/components/profile/EditProfile.js" />
+        <option value="$PROJECT_DIR$/src/components/mydiet/MyDiet.js" />
       </list>
     </option>
   </component>
@@ -242,6 +241,20 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="AllDiets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="health-by" type="b2602c69:ProjectViewProjectNode" />
+              <item name="health-by" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="mydiet" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="health-by" type="b2602c69:ProjectViewProjectNode" />
+              <item name="health-by" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="profile" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="health-by" type="b2602c69:ProjectViewProjectNode" />
@@ -388,12 +401,13 @@
       <workItem from="1545840893040" duration="4458000" />
       <workItem from="1546009956097" duration="3631000" />
       <workItem from="1546020213868" duration="4154000" />
-      <workItem from="1546542108006" duration="2374000" />
+      <workItem from="1546542108006" duration="2973000" />
+      <workItem from="1546704029925" duration="5890000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="380805000" />
+    <option name="totallyTimeSpent" value="387294000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -403,6 +417,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -416,26 +431,25 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12604167" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Favorites" order="3" side_tool="true" />
     </layout-to-restore>
   </component>
@@ -581,9 +595,6 @@
     <entry file="file://$PROJECT_DIR$/src/components/mydiet/NewFood.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/profile/EditProfile.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/style/Diet/NewFood.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
@@ -708,13 +719,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/mydiet/MyDiet.js">
+    <entry file="file://$PROJECT_DIR$/src/components/usersdiet/userDietClick.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
+        <state relative-caret-position="339">
+          <caret line="77" column="26" lean-forward="true" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/AllDiets/OneDiet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/layout/Navbar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="839">
+          <caret line="60" column="1" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/style/UsersDiet/UsersDiet.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -725,38 +757,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/style/UsersDiet/UsersDiet.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="56" column="21" lean-forward="true" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/AllDiets/AllDiets.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/layout/Navbar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="839">
-          <caret line="60" column="1" lean-forward="true" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/usersdiet/OneUserDiet.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-187">
-          <caret column="7" selection-start-column="7" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/usersdiet/usersdiet.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2160">
-          <caret line="80" column="42" lean-forward="true" selection-start-line="80" selection-start-column="42" selection-end-line="80" selection-end-column="42" />
+        <state relative-caret-position="-133">
+          <caret line="70" column="112" selection-start-line="70" selection-start-column="112" selection-end-line="70" selection-end-column="112" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -770,17 +774,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/AllDiets/OneDiet.js">
+    <entry file="file://$PROJECT_DIR$/src/components/AllDiets/AllDiets.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-270">
-          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="49" />
+        <state relative-caret-position="-405">
+          <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/usersdiet/userDietClick.js">
+    <entry file="file://$PROJECT_DIR$/src/components/usersdiet/OneUserDiet.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="27" column="39" lean-forward="true" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
+        <state>
+          <caret column="7" selection-start-column="7" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/profile/EditProfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="69" column="8" selection-start-line="69" selection-start-column="8" selection-end-line="69" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/mydiet/MyDiet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="70" column="30" lean-forward="true" selection-start-line="70" selection-start-column="30" selection-end-line="70" selection-end-column="30" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

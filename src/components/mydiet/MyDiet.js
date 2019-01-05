@@ -18,6 +18,7 @@ class MyDiet extends Component {
             totalCalories:'',
             id : uuid(),
             input: false,
+            errors: {},
 
         }
 
@@ -44,11 +45,18 @@ class MyDiet extends Component {
     }
     onSubmit = (e) => {
         e.preventDefault();
-        const {food, calories} = this.state
-        const newFood = {food, calories: Number(calories), id: uuid()}
-        this.setState({foods: [...this.state.foods, newFood], calories: '', food: '',})
-
-    }
+        const {food, calories, errors} = this.state
+        if (food === ""){
+            this.setState({ errors: {...errors, food: "Food name is required!"}})
+        }
+        else if(calories === ""){
+            this.setState({ errors: { ...errors, calories: "Calories is required!"}})
+        }
+        else{
+            const newFood = {food, calories: Number(calories), id: uuid()}
+            this.setState({foods: [...this.state.foods, newFood], calories: '', food: '', errors: {}})
+        }
+        }
     totalCalories(){
         const {name, foods, totalCalories} = this.state
         if(foods.length > 0){
@@ -61,12 +69,18 @@ class MyDiet extends Component {
 
     onClick = () => {
        const {id} = this.state
-        const {name, foods, totalCalories} = this.state
+        const {name, foods, totalCalories,errors} = this.state
         const diet = {arr: [...foods], id: id, name, totalCalories: this.totalCalories()}
-
         const {firebase} = this.props
-        firebase.updateProfile({diet: {[id]: diet}})
-            .then(()=> this.setState({id: uuid()}))
+        if(name === ""){
+           this.setState({errors: {...errors, name: "Name is required!"}})
+        } else if(diet.arr.length === 0){
+           this.setState({errors: {...errors, length: "Add food!"}})
+        } else {
+            firebase.updateProfile({diet: {[id]: diet}})
+                .then(()=> this.setState({id: uuid(), errors: {}}))
+
+        }
     }
     onDelete = (id) => {
         this.setState({
@@ -80,8 +94,10 @@ class MyDiet extends Component {
     }
 
     render() {
-        const {food, calories, foods, name, input} = this.state
+        const {food, calories, foods, name, input,errors} = this.state
         const {profile} = this.props
+        console.log(Object.values(errors))
+
         if (profile) {
             return (
                 <div className="container">
@@ -89,8 +105,16 @@ class MyDiet extends Component {
                         <form onSubmit={this.onSubmit} className="form-food">
                             <input onChange={this.onChange} value={food} className="input-food" name="food"
                                    placeholder="Type a food name" type="text"/>
+
                             <input onChange={this.onChange} value={calories} className="input-calories" name="calories"
-                                   placeholder="Calories" type="text"/>
+                                       placeholder="Calories" type="number"/>
+
+
+
+
+
+
+
                             <button className="food-add">Add</button>
                         </form>
                         <ol className="food-ul">
@@ -126,6 +150,11 @@ class MyDiet extends Component {
                             <span style={{marginTop: '27px'}}className="food-calories">
                             Total calories:
                                 {this.totalCalories()}</span>
+                        </div>
+                        <div style={{width: '100%', display:'flex', justifyContent: 'center' }}>
+                            <span className="food-calories" style={{margin: '0 auto'}}>
+                                {errors.calories ||
+                                    errors.food || errors.name || errors.length}</span>
                         </div>
 
                         <div style={{display: 'flex', justifyContent: 'center', width: '100%'}}>

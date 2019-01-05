@@ -41,7 +41,7 @@ class UsersDiets extends Component {
         const {pageActive} = this.state
         let dietList = [];
         dietList = diets !== undefined ? [...diets] : [];
-        const perChunk = 3
+        const perChunk = 9
         const pageNumbers = [];
         const inputArray = [ ...dietList]
         const x = inputArray.reduce((resultArray, item, index) => {
@@ -68,8 +68,8 @@ class UsersDiets extends Component {
                 />) : []}
 
 
-        <ul style={{display: 'flex', borderRadius: '20px', listStyle: "none", position: 'absolute', bottom: '-80px', left: '33.33333%',}}>
-            <li style={{fontSize: "50px"}}><i className="fas fa-angle-left" onClick={this.pageMinus}></i> </li>
+        <ul style={{display: 'flex', borderRadius: '20px', listStyle: "none", position: 'absolute', bottom: '-90px', left: '280px',}}>
+            <li style={{fontSize: "50px", position: 'absolute', top: '-10px', left: "0" }}><i className="fas fa-angle-left" onClick={this.pageMinus}></i> </li>
             {
             pageNumbers
                 .slice(this.state.pageActive, this.state.pageActive+4 )
@@ -84,7 +84,7 @@ class UsersDiets extends Component {
                     fontFamily: " 'Open Sans', sans-serif"}} onClick={this.pageChange.bind(this, el)}>{el}
                 </li>)
                 }
-                <li style={{fontSize: "50px"}}><i onClick={this.pagePlus} className="fas fa-angle-right"></i>  </li>
+                <li style={{fontSize: "50px", position: 'absolute', top: '-10px', right: "-40px" }}><i onClick={this.pagePlus} className="fas fa-angle-right"></i>  </li>
             </ul>
             </div>
             </div>

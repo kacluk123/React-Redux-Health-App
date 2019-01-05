@@ -66,18 +66,8 @@ class Profile extends Component {
             firebase.updateProfile({ basicInfo: basicData, info: true}).then(history.push('/profile'))
         }
 
-
-
-
-
-
-
-
-
-
-    }
-
-    onChange = e => {
+        }
+        onChange = e => {
         this.setState({
             [e.target.name]: e.target.value,
         })
