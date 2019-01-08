@@ -11,7 +11,7 @@ class MyDiet extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            food: '',
+            food: "",
             calories: '',
             name: '',
             foods: [],
@@ -41,22 +41,45 @@ class MyDiet extends Component {
     };
 
     onChange = (e) => {
+        const {errors} = this.state
         this.setState({[e.target.name]: e.target.value})
+        if(e.target.value === ""){
+            this.setState({errors: {...errors, [e.target.name]: `${e.target.name} required`}})
+        } else{
+            this.setState({errors: {...errors, [e.target.name]: ""}})
+        }
+
+
+    }
+    validate(){
+        const {food, calories, errors} = this.state
+        function helper(){
+
+        }
+        const err = {}
+        let isError = false;
+        if (food === ""){
+            err.food = "Food required";
+            isError = true;
+        }
+        if(calories === ""){
+            err.calories = "Calories required!";
+            isError = true;
+        }
+        if(isError){
+            this.setState({errors: err})
+        }
+        return isError
     }
     onSubmit = (e) => {
         e.preventDefault();
         const {food, calories, errors} = this.state
-        if (food === ""){
-            this.setState({ errors: {...errors, food: "Food name is required!"}})
-        }
-        else if(calories === ""){
-            this.setState({ errors: { ...errors, calories: "Calories is required!"}})
-        }
-        else{
+        if(!this.validate()){
             const newFood = {food, calories: Number(calories), id: uuid()}
             this.setState({foods: [...this.state.foods, newFood], calories: '', food: '', errors: {}})
         }
         }
+
     totalCalories(){
         const {name, foods, totalCalories} = this.state
         if(foods.length > 0){
@@ -87,7 +110,7 @@ class MyDiet extends Component {
             foods: this.state.foods.filter((el) => el.id !== id)
         })
     }
-    editDiet = (id, calories) =>{
+    editDiet = () =>{
         this.setState({
             input: !this.state.input
         })
@@ -96,25 +119,24 @@ class MyDiet extends Component {
     render() {
         const {food, calories, foods, name, input,errors} = this.state
         const {profile} = this.props
-        console.log(Object.values(errors))
+        console.log(errors)
 
         if (profile) {
             return (
                 <div className="container">
                     <div className="card">
                         <form onSubmit={this.onSubmit} className="form-food">
-                            <input onChange={this.onChange} value={food} className="input-food" name="food"
-                                   placeholder="Type a food name" type="text"/>
+                            <div className="input-container-food">
+                                <input onChange={this.onChange} value={food} className="input-food" name="food"
+                                       placeholder="Type a food name" type="text"/>
+                                <span className="error-message">{errors.food}</span>
+                            </div>
 
-                            <input onChange={this.onChange} value={calories} className="input-calories" name="calories"
+                            <div className="input-container-calories">
+                                <input onChange={this.onChange} value={calories} className="input-calories" name="calories"
                                        placeholder="Calories" type="number"/>
-
-
-
-
-
-
-
+                                <span className="error-message">{errors.calories}</span>
+                            </div>
                             <button className="food-add">Add</button>
                         </form>
                         <ol className="food-ul">
@@ -144,17 +166,17 @@ class MyDiet extends Component {
                             )}
                         </ol>
                         <div style={{display: 'flex', justifyContent: 'center', width: '100%'}}>
-                            <input onChange={this.onChange} value={name} className="input-calories" name="name"
-                                   placeholder="Diet name" type="text"/>
+                            <div className="input-calories-container">
+                                <input onChange={this.onChange} value={name} className="input-calories" name="name"
+                                       placeholder="Diet name" type="text"/>
+                            </div>
 
                             <span style={{marginTop: '27px'}}className="food-calories">
                             Total calories:
                                 {this.totalCalories()}</span>
                         </div>
                         <div style={{width: '100%', display:'flex', justifyContent: 'center' }}>
-                            <span className="food-calories" style={{margin: '0 auto'}}>
-                                {errors.calories ||
-                                    errors.food || errors.name || errors.length}</span>
+                            <span className="food-calories" style={{margin: '0 auto'}}></span>
                         </div>
 
                         <div style={{display: 'flex', justifyContent: 'center', width: '100%'}}>

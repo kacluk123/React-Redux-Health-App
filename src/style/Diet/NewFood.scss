@@ -1,5 +1,5 @@
 @mixin input($width){
-        margin: 20px;
+
         width: $width;
         background: transparent;
         border: none;
@@ -73,6 +73,14 @@
         border: 3px solid #FF4136;
     }
 }
+.error-message{
+    color: #FF4136;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 5px;
+}
 .form-food{
     display: flex;
     justify-content: center;
@@ -112,9 +120,24 @@
     justify-content: center;
 
 }
-.food-add{
+@mixin input-container($width){
+    width: $width;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.input-container-food{
+    @include input-container(70%)
 
-        display: inline-flex;
+}
+.input-container-calories{
+    @include input-container(20%);
+    margin-left: 56px;
+}
+
+.food-add{
+    display: inline-flex;
         width: 10%;
         //margin-bottom: 4px;
         //margin-top: 5px;
@@ -127,6 +150,7 @@
         border: 2px solid white;
         font-weight: 400;
         color: white;
+    margin-left: 50px;
         border-radius: 20px;
         font-size: 20px;
         text-decoration: none;
@@ -139,10 +163,10 @@
 
 }
 .input-food{
-    @include input(70%)
+    @include input(100%)
 }
 .input-calories{
-    @include input(20%)
+    @include input(100%)
 }
 .input-food-edit{
     @include input(40%);
