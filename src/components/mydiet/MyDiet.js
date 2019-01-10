@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { firebaseConnect} from 'react-redux-firebase'
 import uuid from 'uuid';
-import NewFood from './NewFood'
+import Loader from '../layout/Loader'
 import {compose} from "redux";
 import {firestoreConnect} from "react-redux-firebase";
 import {connect} from "react-redux";
@@ -19,6 +19,8 @@ class MyDiet extends Component {
             id : uuid(),
             input: false,
             errors: {},
+            message : '',
+            showLoader: false,
 
         }
 
@@ -51,33 +53,51 @@ class MyDiet extends Component {
 
 
     }
-    validate(){
-        const {food, calories, errors} = this.state
-        function helper(){
-
-        }
-        const err = {}
-        let isError = false;
-        if (food === ""){
-            err.food = "Food required";
-            isError = true;
-        }
-        if(calories === ""){
-            err.calories = "Calories required!";
-            isError = true;
-        }
-        if(isError){
-            this.setState({errors: err})
-        }
-        return isError
+    validate(type){
+        const {food, calories, name,  errors, foods} = this.state
+        switch (type){
+            case "local":
+                const err = {}
+                let isError = false;
+                if (food === ""){
+                    err.food = "Food required";
+                    isError = true;
+                }
+                if(calories === ""){
+                    err.calories = "Calories required!";
+                    isError = true;
+                }
+                if(isError){
+                    this.setState({errors: err})
+                    return isError
+                }
+                break
+            case "db":
+                let canSend = false
+                const errcan = {}
+                if(name === ""){
+                    errcan.name = "Required!";
+                    canSend = true;
+                }
+                if(foods.length === 0){
+                    errcan.name = "Add food!";
+                    canSend= true;
+                }
+                if(canSend){
+                    this.setState({errors: errcan})
+                    return canSend
+                }
+                break
+                }
     }
     onSubmit = (e) => {
         e.preventDefault();
         const {food, calories, errors} = this.state
-        if(!this.validate()){
+        if(!this.validate("local")){
             const newFood = {food, calories: Number(calories), id: uuid()}
             this.setState({foods: [...this.state.foods, newFood], calories: '', food: '', errors: {}})
         }
+        console.log(this.validate())
         }
 
     totalCalories(){
@@ -95,16 +115,22 @@ class MyDiet extends Component {
         const {name, foods, totalCalories,errors} = this.state
         const diet = {arr: [...foods], id: id, name, totalCalories: this.totalCalories()}
         const {firebase} = this.props
-        if(name === ""){
-           this.setState({errors: {...errors, name: "Name is required!"}})
-        } else if(diet.arr.length === 0){
-           this.setState({errors: {...errors, length: "Add food!"}})
-        } else {
-            firebase.updateProfile({diet: {[id]: diet}})
-                .then(()=> this.setState({id: uuid(), errors: {}}))
+        if(!this.validate("db")){
+                this.setState({showLoader: true})
+                firebase.updateProfile({diet: {[id]: diet}})
+                    .then(()=> {
+                        this.setState({id: uuid(), errors: {},
+                            showLoader: false,  message: "Successfully added to database!"})
+                        setTimeout(()=>{
+                           this.setState({
+                               message: ""
+                           })
+                       },3000)
+                    })
+            }
 
         }
-    }
+
     onDelete = (id) => {
         this.setState({
             foods: this.state.foods.filter((el) => el.id !== id)
@@ -116,8 +142,9 @@ class MyDiet extends Component {
         })
     }
 
+
     render() {
-        const {food, calories, foods, name, input,errors} = this.state
+        const {food, calories, foods, name, input,errors,message,showLoader} = this.state
         const {profile} = this.props
         console.log(errors)
 
@@ -139,6 +166,7 @@ class MyDiet extends Component {
                             </div>
                             <button className="food-add">Add</button>
                         </form>
+
                         <ol className="food-ul">
                             {foods.map((el, index) =>
                                 <li key={el.id}>
@@ -169,6 +197,7 @@ class MyDiet extends Component {
                             <div className="input-calories-container">
                                 <input onChange={this.onChange} value={name} className="input-calories" name="name"
                                        placeholder="Diet name" type="text"/>
+                                <span className="error-message">{errors.name}</span>
                             </div>
 
                             <span style={{marginTop: '27px'}}className="food-calories">
@@ -179,8 +208,13 @@ class MyDiet extends Component {
                             <span className="food-calories" style={{margin: '0 auto'}}></span>
                         </div>
 
-                        <div style={{display: 'flex', justifyContent: 'center', width: '100%'}}>
-                            <button onClick={this.onClick} className="submit">Add Diet</button>
+                        <div style={{display: 'flex', alignItems: 'center', width: '100%',flexDirection: "column"}}>
+                            <div style={{width: '100%', display: 'flex', justifyContent: 'center', position: 'relative'}}>
+                                <button onClick={this.onClick} style={{color: !showLoader ? "white" : "transparent"}}className="submit">Add Diet</button>
+                                {showLoader ? <Loader/> : null}
+                            </div>
+                            <span className="error-message">{message}</span>
+
                         </div>
 
                     </div>
