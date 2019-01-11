@@ -120,7 +120,7 @@ class MyDiet extends Component {
                 firebase.updateProfile({diet: {[id]: diet}})
                     .then(()=> {
                         this.setState({id: uuid(), errors: {},
-                            showLoader: false,  message: "Successfully added to database!"})
+                            showLoader: false, foods: [], name: "", message: "Successfully added to database!"})
                         setTimeout(()=>{
                            this.setState({
                                message: ""
@@ -200,7 +200,7 @@ class MyDiet extends Component {
                                 <span className="error-message">{errors.name}</span>
                             </div>
 
-                            <span style={{marginTop: '27px'}}className="food-calories">
+                            <span style={{margin: '10px 0 0 10px '}}className="food-calories">
                             Total calories:
                                 {this.totalCalories()}</span>
                         </div>

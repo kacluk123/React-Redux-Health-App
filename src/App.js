@@ -9,6 +9,8 @@ import UsersDiet from './components/usersdiet/usersdiet'
 import MyDiet from './components/mydiet/MyDiet'
 import WorkoutPlan from './components/workoutplan/WorkoutPlan'
 import Login from './components/login/Login'
+import Register from './components/login/Register'
+
 import './style/Main.scss'
 import {firebaseConnect} from "react-redux-firebase";
 import {compose} from 'redux';
@@ -21,14 +23,9 @@ import {UserIsAuthenticated, UserIsNotAuthenticated} from "./auth";
 import store from './store';
 import {sendId} from "./actions/IDActions";
 class App extends Component {
-
     render() {
-
-
         return (
-
-
-                <Router>
+            <Router>
                     <div   className={`${this.props.dietID.edit  ? "blackScreen" : ""}`} style={{display: 'flex'}} >
                         <Navbar/>
                         <Switch>
@@ -38,12 +35,13 @@ class App extends Component {
                             <Route component={UserIsAuthenticated(EditProfile)} exact path="/editprofile"/>
                             <Route component={UserIsAuthenticated(WorkoutPlan)} exact path="/workout"/>
                             <Route component={UserIsNotAuthenticated(Login)} exact path="/login"/>
+                            <Route component={UserIsNotAuthenticated(Register)} exact path="/register"/>
                             <Route component={UserIsAuthenticated(EditDiet)} exact path="/edit/:id"/>
                             <Route component={UserIsAuthenticated(UsersDiet)} exact path="/usersdiet"/>
+
                         </Switch>
                     </div>
                 </Router>
-
         )
     }
 }

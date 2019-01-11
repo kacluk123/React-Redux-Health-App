@@ -12,6 +12,7 @@ class Navbar extends Component {
     }
     render() {
         const { auth } = this.props
+        console.log(auth)
         return (
 
             <div className="main-navbar">

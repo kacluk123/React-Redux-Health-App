@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import Gym from '../../gym.jpg'
 import { firebaseConnect} from 'react-redux-firebase'
-
+import {Link} from "react-router-dom"
 class Login extends Component {
     state = {
         email:'',
         password: '',
+        error: "",
     }
     login = (e) =>{
         e.preventDefault()
@@ -14,9 +15,8 @@ class Login extends Component {
         firebase.login({
             email,
             password,
-        }).catch((error )=>{
-            console.log('wrong data')
-
+        }).catch((error)=>{
+            this.setState({error: error.message})
         })
     }
 
@@ -26,6 +26,7 @@ class Login extends Component {
         })
     }
     render() {
+        const {error} = this.state
         return (
             <div className='main-login'>
             <div className="col4">
@@ -35,7 +36,9 @@ class Login extends Component {
                     <input type="password" onChange={this.onChange} name="password" placeholder='Password'/>
                     <input type="submit" value="Login"/>
                 </form>
-
+                <span className="error-message">{error}</span>
+                <span className="main-login-register-message">You don't have a account yet?</span>
+                <Link to="/register" style={{color: "#FF4136"}}>Register here</Link>
             </div>
                 </div>
             </div>
