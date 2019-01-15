@@ -20,5 +20,6 @@ class MainProfile extends Component {
 export default compose(firestoreConnect(), firebaseConnect(),
     connect((state) => ({
         profile: state.firebase.profile.basicInfo,
+        fullInfo : state.firebase.profile,
         info: state.firebase.profile.info,
     })))(MainProfile);

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { firebaseConnect} from 'react-redux-firebase'
 import { connect } from 'react-redux'
+import Loader from "./Loader"
 import { compose } from 'redux'
 import {Link} from 'react-router-dom'
 class Navbar extends Component {
@@ -11,12 +12,11 @@ class Navbar extends Component {
         firebase.logout();
     }
     render() {
-        const { auth } = this.props
-        console.log(auth)
-        return (
+        const { profile } = this.props
 
+        return (
             <div className="main-navbar">
-                {auth.uid ? <ul>
+                <ul>
                     <li style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
                         <div style=
                                  {{
@@ -49,11 +49,7 @@ class Navbar extends Component {
                     </Link></li>
                     <li onClick={this.onLogoutClick}><a href='!#' className="navbar-links profile-link"><i
                         className="fas fa-sign-out-alt"></i>Logout</a></li>
-
-
-
-
-                </ul> : null}
+                </ul>
             </div>
 
 
