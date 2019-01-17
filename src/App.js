@@ -37,7 +37,10 @@ class App extends Component {
                             <Route component={UserIsNotAuthenticated(Login)} exact path="/login"/>
                             <Route component={UserIsNotAuthenticated(Register)} exact path="/register"/>
                             <Route component={UserIsAuthenticated(EditDiet)} exact path="/edit/:id"/>
-                            <Route component={UserIsAuthenticated(UsersDiet)} exact path="/usersdiet"/>
+                            <Route component={UserIsAuthenticated(UsersDiet)} exact path="/usersdiet"
+
+
+                            />
 
                         </Switch>
                     </div>
@@ -46,6 +49,9 @@ class App extends Component {
     }
 }
 
-export default connect((state)=>({
-    dietID: state.idRed.idDiet,
-}))(App)
+export default compose(firestoreConnect(), firebaseConnect(),
+    connect((state,props) =>({
+        info: state.firebase.profile.info,
+        profile: state.firebase.profile.basicInfo,
+        dietID: state.idRed.idDiet,
+    })))(App);

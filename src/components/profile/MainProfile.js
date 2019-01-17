@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import UserProfile from './UserProfile'
 import Profile from './Profile'
+import Loader from '../layout/Loader'
 import {connect} from "react-redux";
 import {compose} from "redux";
 import {firebaseConnect, firestoreConnect} from "react-redux-firebase";

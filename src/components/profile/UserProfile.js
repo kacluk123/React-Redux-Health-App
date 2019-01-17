@@ -13,6 +13,9 @@ class UserProfile extends Component {
         data: {},
         bmi: '',
     }
+
+
+
     static getDerivedStateFromProps(props, state) {
         if (props.profile) {
             if (props.profile !== state.data) {
@@ -31,6 +34,7 @@ class UserProfile extends Component {
             profileDisplayAvatar, profileDisplayName, profileWeight,
             profileHeight, profileAge, caloriesNeed, profileProteins, profileFats, profileCarbs,
         } = this.state.data;
+
         let color;
         let bmi = '';
         const {profileBmi} = this.state.data;
@@ -52,7 +56,7 @@ class UserProfile extends Component {
         }
 
         if (this.props.profile) {
-                return (
+            return (
                     <div className="container">
                         <div className="card">
                             <div className="col10">

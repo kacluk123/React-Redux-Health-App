@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { firebaseConnect} from 'react-redux-firebase'
 import { compose } from 'redux';
 import PropTypes from 'prop-types';
+
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 class Profile extends Component {
@@ -68,6 +69,7 @@ class Profile extends Component {
         })
     }
     render() {
+
         const {age, weight, height, displayName, displayAvatar, errors} = this.state;
                 return (
                         <div className="formContainer">
@@ -95,6 +97,8 @@ class Profile extends Component {
                                                     <span className="gender">Men</span>
                                                     <input value="man" onChange={this.handleChange} checked={this.state.gender === "man"} type="radio"/>
                                                 </div>
+
+
                                                 <input onChange={this.onChange} value={height} name='height' type="number" placeholder="Height"/>
                                                 <input onChange={this.onChange} value={displayName} name='displayName' type="text" placeholder="Display name"/>
                                             </div>

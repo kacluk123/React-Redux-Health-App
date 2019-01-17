@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux'
 import {compose} from "redux"
+import { Redirect } from 'react-router-dom';
+
 import OneUserDiet from './OneUserDiet'
 import UserDietClick from './userDietClick'
 import {firebaseConnect, firestoreConnect} from 'react-redux-firebase'
@@ -37,6 +39,10 @@ class UsersDiets extends Component {
     }
 
     render() {
+        if(!this.props.profile.basicInfo){
+            return <Redirect to='/profile'/>;
+        }
+        console.log(this.props.profile)
         const {diets, dietID} = this.props
         const {pageActive} = this.state
         let dietList = [];
