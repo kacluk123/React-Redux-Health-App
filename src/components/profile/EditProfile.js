@@ -39,12 +39,12 @@ class Profile extends Component {
             profileDisplayAvatar: this.avatar.current.value,
             profileDisplayName: this.name.current.value,
             profileBmi: (Number(this.weight.current.value) / heightSquare).toFixed(1),
-            profileProteins: 1.5 * Number(this.weight.current.value),
-            profileFats: 1.2 * Number(this.weight.current.value),
-            profileCarbs: 3 * Number(this.weight.current.value),
-            caloriesNeed: gender === 'man' ? (9.99 * Number(this.weight.current.value)) + (6.25 * Number(this.height.current.value,))
+            profileProteins:( 1.5 * Number(this.weight.current.value)).toFixed(1),
+            profileFats: (1.2 * Number(this.weight.current.value)).toFixed(1),
+            profileCarbs: (3 * Number(this.weight.current.value)).toFixed(1),
+            caloriesNeed: (gender === 'man' ? (9.99 * Number(this.weight.current.value)) + (6.25 * Number(this.height.current.value,))
                 - (4.92 * Number(this.age.current.value)) + 5 : (9.99 * Number(this.weight.current.value)) + (6.25 * Number(this.height.current.value,))
-                - (4.92 * Number(this.age.current.value)) - 161,
+                - (4.92 * Number(this.age.current.value)) - 161).toFixed(1),
         }
 
         if(this.age.current.value === ''){

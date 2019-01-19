@@ -96,4 +96,53 @@
     }
 }
 
+@media(max-width: 991px){
+    .container{
+        padding-left: 32px;
+        padding-right: 32px;
+        padding-top: 30px;
+    }
+    .card{
+        width: 100%;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+}
 
+@media(max-width: 610px){
+    .container{
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 30px;
+    }
+
+    .user-info{
+        width: 100%;
+        flex-direction: column;
+        margin: 0;
+        li{
+            padding: 0;
+        }
+
+    }
+    .user-profile-avatar{
+        width: 100px;
+        height: 100px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 150px;
+        border-radius: 50%;
+        border: 2px solid white;
+
+    }
+    .user-name{
+        text-align: center;
+    }
+    .user-bmi{
+        text-align: center;
+    }
+    .submit{
+        margin-top: 10px;
+        width: 100% !important;
+    }
+}

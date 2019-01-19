@@ -37,12 +37,12 @@ class Profile extends Component {
             profileDisplayAvatar: displayAvatar,
             profileDisplayName: displayName,
             profileBmi: (Number(weight) / heightSquare).toFixed(1),
-            profileProteins: 1.5 * Number(weight),
-            profileFats: 1.2 * Number(weight),
-            profileCarbs: 3 * Number(weight),
-            caloriesNeed: gender === 'man' ? (9.99 * Number(weight)) + (6.25 * Number(height))
+            profileProteins: (1.5 * Number(weight)).toFixed(1),
+            profileFats: (1.2 * Number(weight)).toFixed(1),
+            profileCarbs: (3 * Number(weight)).toFixed(1),
+            caloriesNeed: (gender === 'man' ? (9.99 * Number(weight)) + (6.25 * Number(height))
                 - (4.92 * Number(age)) + 5 : (9.99 * Number(weight)) + (6.25 * Number(height))
-                - (4.92 * Number(age)) - 161,
+                - (4.92 * Number(age)) - 161).toFixed(1),
         }
 
         if(age === ''){

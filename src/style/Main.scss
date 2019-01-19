@@ -7,10 +7,15 @@
 @import '/AllDiets/AllDiet.scss';
 @import '/UsersDiet/UsersDiet';
 @import '/Loader';
+*{
+    box-sizing: border-box;
+}
 
 body {
     font-family: 'Open Sans', sans-serif;
     background-color:  #CAE4DB;
+    min-width: 320px;
+
 }
 .blackScreen{
     &:after{
@@ -23,7 +28,4 @@ body {
         background-color: #282c34;
         opacity: 0.9;
     }
-}
-*{
-    box-sizing: border-box;
 }

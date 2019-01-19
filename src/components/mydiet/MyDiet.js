@@ -43,13 +43,21 @@ class MyDiet extends Component {
     };
 
     onChange = (e) => {
-        const {errors} = this.state
+        const {errors, food} = this.state
         this.setState({[e.target.name]: e.target.value})
         if(e.target.value === ""){
             this.setState({errors: {...errors, [e.target.name]: `${e.target.name} required`}})
         } else{
             this.setState({errors: {...errors, [e.target.name]: ""}})
         }
+
+        switch(e.target.name){
+            case "food" :
+                if(food.length > 10){
+                    this.setState({errors: {...errors, food: `Max 15 characters`}})
+                } 
+                break
+            }
 
 
     }
@@ -61,6 +69,10 @@ class MyDiet extends Component {
                 let isError = false;
                 if (food === ""){
                     err.food = "Food required";
+                    isError = true;
+                }
+                if (food.length < 15){
+                    err.food = "Max 15 characters";
                     isError = true;
                 }
                 if(calories === ""){
@@ -154,7 +166,7 @@ class MyDiet extends Component {
                     <div className="card">
                         <form onSubmit={this.onSubmit} className="form-food">
                             <div className="input-container-food">
-                                <input onChange={this.onChange} value={food} className="input-food" name="food"
+                                <input onChange={this.onChange} maxLength="15" value={food} className="input-food" name="food"
                                        placeholder="Type a food name" type="text"/>
                                 <span className="error-message">{errors.food}</span>
                             </div>
@@ -170,30 +182,32 @@ class MyDiet extends Component {
                         <ol className="food-ul">
                             {foods.map((el, index) =>
                                 <li key={el.id}>
-                                    <div style={{float: 'right'}}>
-                                        <i
-                                            onClick={this.onDelete.bind(this, el.id)}
-                                            style={{color: 'white', paddingLeft: '5px', cursor: 'pointer'}}
-                                            className="far fa-trash-alt">
-                                        </i>
-                                        <i onClick={this.editDiet.bind(this, el.id, el.calories)}
-                                           style={{color: 'white', paddingLeft: '5px', cursor: 'pointer'}} className="far fa-edit"></i>
-                                    </div>
+                                  <div className="food-container-ul">
+                                      <div style={{float: 'right'}}>
+                                          <i
+                                              onClick={this.onDelete.bind(this, el.id)}
+                                              style={{color: 'white', paddingLeft: '5px', cursor: 'pointer'}}
+                                              className="far fa-trash-alt">
+                                          </i>
+                                          <i onClick={this.editDiet.bind(this, el.id, el.calories)}
+                                             style={{color: 'white', paddingLeft: '5px', cursor: 'pointer'}} className="far fa-edit"></i>
+                                      </div>
 
 
-                                    {input ?  <div><input className="input-food-edit" onChange={event => this.onChangeX(index, event.target.value ,el.calories, el.id)}
-                                                          value={el.food}  type="text"/>
+                                      {input ?  <div><input className="input-food-edit" onChange={event => this.onChangeX(index, event.target.value ,el.calories, el.id)}
+                                                            value={el.food}  type="text"/>
 
 
-                                            <input className="input-calories-edit" onChange={ev => this.onChangeG(index, ev.target.value ,el.food, el.id)}
-                                                   value={el.calories}  type="text"/></div>
-                                        : <React.Fragment><span>{el.food}</span>
-                                        <span className="food-calories">{el.calories}Cal.</span></React.Fragment>}
+                                              <input className="input-calories-edit" onChange={ev => this.onChangeG(index, ev.target.value ,el.food, el.id)}
+                                                     value={el.calories}  type="text"/></div>
+                                          : <React.Fragment><span>{el.food}</span>
+                                              <span className="food-calories">{el.calories}Cal.</span></React.Fragment>}
+                                  </div>
 
                                 </li>
                             )}
                         </ol>
-                        <div style={{display: 'flex', justifyContent: 'center', width: '100%'}}>
+                        <div className="total-calories-container">
                             <div className="input-calories-container">
                                 <input onChange={this.onChange} value={name} className="input-calories" name="name"
                                        placeholder="Diet name" type="text"/>

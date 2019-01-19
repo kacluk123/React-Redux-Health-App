@@ -58,15 +58,16 @@
 
 
 
-//@media(max-width: 720px){
-//
-//    .main-navbar{
-//        position: relative;
-//        ul{
-//            position: absolute;
-//            left: -300px;
-//
-//        }
-//
-//    }
-//}
+@media(max-width: 900px){
+
+    .main-navbar{
+        position: relative;
+        ul{
+            position: absolute;
+            left: -200px;
+            z-index: 999999;
+
+        }
+
+    }
+}

@@ -162,6 +162,11 @@
         }
 
 }
+.total-calories-container{
+   display: flex;
+    justify-content: center;
+    width: 100%;
+}
 .input-food{
     @include input(100%)
 }
@@ -172,12 +177,49 @@
     @include input(40%);
 
     margin: 0 5px 0 0;
-
-
 }
 .input-calories-edit{
     @include input(20%);
 
     margin: 0 5px 0 0;
+
+}
+
+@media(max-width: 880px){
+    .form-food{
+        flex-direction: column;
+        align-items: center;
+    }
+    .food-add, .input-container-calories{
+        width: 60%;
+        margin-left: 0;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .input-calories, .input-food{
+        text-align: center;
+    }
+
+}
+@media(max-width: 600px){
+    .total-calories-container{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+}
+@media(max-width: 490px){
+    .food-add, .input-container-calories, .input-container-food{
+        width: 100%;
+
+    }
+    .food-container-ul{
+        display: flex;
+        flex-direction: column-reverse;
+    }
 
 }
