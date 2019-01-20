@@ -17,7 +17,6 @@ class MyDiet extends Component {
             foods: [],
             totalCalories:'',
             id : uuid(),
-            input: false,
             errors: {},
             message : '',
             showLoader: false,
@@ -27,17 +26,18 @@ class MyDiet extends Component {
 
 
     }
-    onChangeX = (index, food, calories, id) => {
+    onChangeX = (index, food, calories, id, input) => {
         this.setState(prevState => {
             const foods = [...prevState.foods];
-            foods[index] = {food, calories,id };
+            foods[index] = {food, calories,id, input };
+            console.log(foods[index])
             return { foods };
         });
     };
-    onChangeG = (index, calories, food, id) => {
+    onChangeG = (index, calories, food, id, input) => {
         this.setState(prevState => {
             const foods = [...prevState.foods];
-            foods[index] = {food, calories,id };
+            foods[index] = {food, calories,id, input };
             return { foods };
         });
     };
@@ -71,7 +71,7 @@ class MyDiet extends Component {
                     err.food = "Food required";
                     isError = true;
                 }
-                if (food.length < 15){
+                if (food.length > 15){
                     err.food = "Max 15 characters";
                     isError = true;
                 }
@@ -106,8 +106,8 @@ class MyDiet extends Component {
         e.preventDefault();
         const {food, calories, errors} = this.state
         if(!this.validate("local")){
-            const newFood = {food, calories: Number(calories), id: uuid()}
-            this.setState({foods: [...this.state.foods, newFood], calories: '', food: '', errors: {}})
+            const newFood = {food, calories: Number(calories), id: uuid(), input: false}
+            this.setState({foods: [...this.state.foods, newFood], calories: '',  food: '', errors: {}})
         }
         console.log(this.validate())
         }
@@ -148,10 +148,18 @@ class MyDiet extends Component {
             foods: this.state.foods.filter((el) => el.id !== id)
         })
     }
-    editDiet = () =>{
-        this.setState({
-            input: !this.state.input
-        })
+    editDiet = (id,input,index) =>{
+        let items = [...this.state.foods];
+        let item = {...items[index]};
+        item.input = !input;
+        items[index] = item;
+        this.setState({foods : items});
+
+
+    }
+    sendThis = (id)=>{
+        console.log(this)
+        this.setState({[id] : false})
     }
 
 
@@ -180,32 +188,33 @@ class MyDiet extends Component {
                         </form>
 
                         <ol className="food-ul">
-                            {foods.map((el, index) =>
-                                <li key={el.id}>
-                                  <div className="food-container-ul">
-                                      <div style={{float: 'right'}}>
-                                          <i
-                                              onClick={this.onDelete.bind(this, el.id)}
-                                              style={{color: 'white', paddingLeft: '5px', cursor: 'pointer'}}
-                                              className="far fa-trash-alt">
-                                          </i>
-                                          <i onClick={this.editDiet.bind(this, el.id, el.calories)}
-                                             style={{color: 'white', paddingLeft: '5px', cursor: 'pointer'}} className="far fa-edit"></i>
-                                      </div>
+                            {foods.map((el, index) =>{
+                                return (<li key={el.id}>
+                                    <div className="food-container-ul">
+                                        <div style={{float: 'right'}}>
+                                            <i
+                                                onClick={this.onDelete.bind(this, el.id)}
+                                                style={{color: 'white', paddingLeft: '5px', cursor: 'pointer'}}
+                                                className="far fa-trash-alt">
+                                            </i>
+                                            <i onClick={this.editDiet.bind(this, el.id, el.input, index)}
+                                               style={{color: 'white', paddingLeft: '5px', cursor: 'pointer'}} className="far fa-edit"></i>
+                                        </div>
 
 
-                                      {input ?  <div><input className="input-food-edit" onChange={event => this.onChangeX(index, event.target.value ,el.calories, el.id)}
-                                                            value={el.food}  type="text"/>
+                                        {el.input ?  <div>
+                                                <input className="input-food-edit" onChange={event => this.onChangeX(index, event.target.value ,el.calories, el.id, el.input)}
+                                                              value={el.food}  type="text"/>
 
 
-                                              <input className="input-calories-edit" onChange={ev => this.onChangeG(index, ev.target.value ,el.food, el.id)}
-                                                     value={el.calories}  type="text"/></div>
-                                          : <React.Fragment><span>{el.food}</span>
-                                              <span className="food-calories">{el.calories}Cal.</span></React.Fragment>}
-                                  </div>
+                                                <input className="input-calories-edit" onChange={ev => this.onChangeG(index, ev.target.value ,el.food, el.id, el.input)}
+                                                       value={el.calories}  type="text"/></div>
+                                            : <React.Fragment><span>{el.food}</span>
+                                                <span className="food-calories">{el.calories}Cal.</span></React.Fragment>}
+                                    </div>
 
-                                </li>
-                            )}
+                                </li>)
+                            })}
                         </ol>
                         <div className="total-calories-container">
                             <div className="input-calories-container">

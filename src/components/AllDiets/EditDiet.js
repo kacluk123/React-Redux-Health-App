@@ -13,7 +13,7 @@ class EditDiet extends Component {
         this.state = {
             food: '',
             calories: '',
-            name: '',
+            name: "",
             foods: [],
             totalCalories:'',
             input: false,
@@ -22,8 +22,10 @@ class EditDiet extends Component {
     }
     componentDidMount(){
         this.setState({
-            foods: this.props.id.idDiet.arr
+            foods: this.props.id.idDiet.arr,
+
         })
+
     }
 
     onChangeX = (index, food, calories, id) => {
@@ -118,7 +120,7 @@ class EditDiet extends Component {
 
 
                                             <input className="input-calories-edit" onChange={ev => this.onChangeG(index, ev.target.value ,el.food, el.id)}
-                                                   value={el.calories}  type="text"/></div>
+                                                   value={el.calories}   type="text"/></div>
                                         : <React.Fragment><span>{el.food}</span>
                                             <span className="food-calories">{el.calories}Cal.</span></React.Fragment>}
 
