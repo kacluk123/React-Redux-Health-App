@@ -193,7 +193,7 @@ class MyDiet extends Component {
                             {foods.map((el, index) =>{
                                 return (<li key={el.id}>
                                     <div className="food-container-ul">
-                                        <div style={{float: 'right'}}>
+                                        <div  className='option-container'>
                                             <i
                                                 onClick={this.onDelete.bind(this, el.id)}
                                                 style={{color: 'white', paddingLeft: '5px', cursor: 'pointer'}}
@@ -211,8 +211,9 @@ class MyDiet extends Component {
 
                                                 <input className="input-calories-edit" onChange={ev => this.onChangeG(index, ev.target.value ,el.food, el.id, el.input)}
                                                        value={el.calories}  type="text"/></div>
-                                            : <React.Fragment><span>{el.food}</span>
-                                                <span className="food-calories">{el.calories}Cal.</span></React.Fragment>}
+                                            : <div style={{display: 'flex'}}>
+                                                <span>{el.food}</span>
+                                                <span className="food-calories">{el.calories}Cal.</span></div>}
                                     </div>
 
                                 </li>)

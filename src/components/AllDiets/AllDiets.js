@@ -44,7 +44,17 @@ class AllDiets extends Component {
             infinite: false,
             speed: 500,
             slidesToShow: 2,
-            slidesToScroll: 1
+            slidesToScroll: 1,  responsive: [
+
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 2
+                    }
+                }
+        ],
+
         };
         const { diet, profile } = this.props
         if(profile && diet !== undefined){
@@ -52,7 +62,7 @@ class AllDiets extends Component {
                 return dietItem.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1})
             return (
                 <div className="container">
-                    <div className="card">
+                    <div className="card" style={{position: 'relative'}}>
                         {this.props.dietID.idDiet.edit ? <div style={{
                             zIndex: '9999',
                             position: 'absolute',
@@ -65,8 +75,8 @@ class AllDiets extends Component {
                             height: '210px',
                             borderRadius: '20px',
                             top: '35%',
-                            left: '20%',
-                            ttransform: "translate(-50%, -50%)",
+                            left: '40%',
+                            transform: "translate(-50%, -50%)",
                         }}>
                             <i onClick={this.closeWindow} style={{alignSelf: 'flex-end', cursor:'pointer', fontSize: '20px'}}className="fas fa-times"></i>
                             <span style={{paddingTop: '4px',
