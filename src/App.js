@@ -29,15 +29,15 @@ class App extends Component {
                     <div   className={`${this.props.dietID.edit  ? "blackScreen" : ""}`} style={{display: 'flex'}} >
                         <Navbar/>
                         <Switch>
-                            <Route component={UserIsAuthenticated(MainProfile)} exact path="/profile"/>
-                            <Route component={UserIsAuthenticated(MyDiet)} exact path="/diet"/>
-                            <Route component={UserIsAuthenticated(AllDiets)} exact path="/alldiets"/>
-                            <Route component={UserIsAuthenticated(EditProfile)} exact path="/editprofile"/>
+                            <Route component={UserIsAuthenticated(MainProfile)} exact path={process.env.PUBLIC_URL + '/profile'}/>
+                            <Route component={UserIsAuthenticated(MyDiet)} exact path={process.env.PUBLIC_URL + '/diet'}/>
+                            <Route component={UserIsAuthenticated(AllDiets)} exact path={process.env.PUBLIC_URL + '/alldiets'}/>
+                            <Route component={UserIsAuthenticated(EditProfile)} exact path={process.env.PUBLIC_URL + '/editprofile'}/>
                             <Route component={UserIsAuthenticated(WorkoutPlan)} exact path="/workout"/>
-                            <Route component={UserIsNotAuthenticated(Login)} exact path="/login"/>
-                            <Route component={UserIsNotAuthenticated(Register)} exact path="/register"/>
-                            <Route component={UserIsAuthenticated(EditDiet)} exact path="/edit/:id"/>
-                            <Route component={UserIsAuthenticated(UsersDiet)} exact path="/usersdiet"
+                            <Route component={UserIsNotAuthenticated(Login)} exact path={process.env.PUBLIC_URL + '/login'}/>
+                            <Route component={UserIsNotAuthenticated(Register)} exact path={process.env.PUBLIC_URL + '/register'}/>
+                            <Route component={UserIsAuthenticated(EditDiet)}exact path={process.env.PUBLIC_URL + '/edit/:id'}/>
+                            <Route component={UserIsAuthenticated(UsersDiet)} exact path={process.env.PUBLIC_URL + '/userdiet'}
 
 
                             />
