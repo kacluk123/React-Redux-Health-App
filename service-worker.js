@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "/React-Redux-Health-App/precache-manifest.65ccf9a07588139b68aad7d5c33f66da.js"
+  "/React-Redux-Health-App/precache-manifest.272d43ea7fcd9f86c46edf63321f0ac5.js"
 );
 
 workbox.clientsClaim();
