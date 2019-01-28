@@ -16,7 +16,7 @@ import {firebaseConnect} from "react-redux-firebase";
 import {compose} from 'redux';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import {firestoreConnect} from 'react-redux-firebase';
 import {UserIsAuthenticated, UserIsNotAuthenticated} from "./auth";
@@ -35,7 +35,7 @@ class App extends Component {
                             <Route component={UserIsAuthenticated(EditProfile)} exact path="/editprofile"/>
                             <Route component={UserIsAuthenticated(WorkoutPlan)} exact path="/workout"/>
                             <Route component={UserIsNotAuthenticated(Login)} exact path="/login"/>
-                            <Route component={UserIsNotAuthenticated(Register)} exact path="/register"/>
+                            <Route component={UserIsNotAuthenticated(Register)} exact path="/"/>
                             <Route component={UserIsAuthenticated(EditDiet)} exact path="/edit/:id"/>
                             <Route component={UserIsAuthenticated(UsersDiet)} exact path="/usersdiet"
 
