@@ -2,9 +2,11 @@
   "name": "health-by",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://kacluk123.github.io/React-Redux-Health-App/",
   "dependencies": {
     "classnames": "^2.2.6",
     "firebase": "^5.5.4",
+    "gh-pages": "^2.0.1",
     "node-sass": "^4.9.3",
     "normalize.css": "^8.0.0",
     "react": "^16.5.2",
@@ -24,6 +26,8 @@
     "uuid": "^3.3.2"
   },
   "scripts": {
+    "predeploy" : "npm run build",
+    "deploy" : "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
