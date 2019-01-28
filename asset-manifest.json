@@ -1,7 +1,7 @@
 {
   "main.css": "/React-Redux-Health-App/static/css/main.a80d3451.chunk.css",
-  "main.js": "/React-Redux-Health-App/static/js/main.23c5f074.chunk.js",
-  "main.js.map": "/React-Redux-Health-App/static/js/main.23c5f074.chunk.js.map",
+  "main.js": "/React-Redux-Health-App/static/js/main.28c343f7.chunk.js",
+  "main.js.map": "/React-Redux-Health-App/static/js/main.28c343f7.chunk.js.map",
   "static/js/1.e5713f8b.chunk.js": "/React-Redux-Health-App/static/js/1.e5713f8b.chunk.js",
   "static/js/1.e5713f8b.chunk.js.map": "/React-Redux-Health-App/static/js/1.e5713f8b.chunk.js.map",
   "runtime~main.js": "/React-Redux-Health-App/static/js/runtime~main.f93d441a.js",
@@ -10,6 +10,6 @@
   "static/media/gym.jpg": "/React-Redux-Health-App/static/media/gym.bdc9804c.jpg",
   "static/media/logo.svg": "/React-Redux-Health-App/static/media/logo.5d5d9eef.svg",
   "index.html": "/React-Redux-Health-App/index.html",
-  "precache-manifest.e413e3b472cfc17adeae9ad6abfdfa3c.js": "/React-Redux-Health-App/precache-manifest.e413e3b472cfc17adeae9ad6abfdfa3c.js",
+  "precache-manifest.941875ee8580a9b1bee2621e2417b06a.js": "/React-Redux-Health-App/precache-manifest.941875ee8580a9b1bee2621e2417b06a.js",
   "service-worker.js": "/React-Redux-Health-App/service-worker.js"
 }
