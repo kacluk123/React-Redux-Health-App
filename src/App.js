@@ -16,7 +16,7 @@ import {firebaseConnect} from "react-redux-firebase";
 import {compose} from 'redux';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import {firestoreConnect} from 'react-redux-firebase';
 import {UserIsAuthenticated, UserIsNotAuthenticated} from "./auth";
@@ -25,19 +25,19 @@ import {sendId} from "./actions/IDActions";
 class App extends Component {
     render() {
         return (
-            <Router basename={process.env.PUBLIC_URL}>
+            <Router>
                     <div   className={`${this.props.dietID.edit  ? "blackScreen" : ""}`} style={{display: 'flex'}} >
                         <Navbar/>
                         <Switch>
-                            <Route component={UserIsAuthenticated(MainProfile)} exact path={process.env.PUBLIC_URL + '/profile'}/>
-                            <Route component={UserIsAuthenticated(MyDiet)} exact path={process.env.PUBLIC_URL + '/diet'}/>
-                            <Route component={UserIsAuthenticated(AllDiets)} exact path={process.env.PUBLIC_URL + '/alldiets'}/>
-                            <Route component={UserIsAuthenticated(EditProfile)} exact path={process.env.PUBLIC_URL + '/editprofile'}/>
+                            <Route component={UserIsAuthenticated(MainProfile)} exact path="/profile"/>
+                            <Route component={UserIsAuthenticated(MyDiet)} exact path="/diet"/>
+                            <Route component={UserIsAuthenticated(AllDiets)} exact path="/alldiets"/>
+                            <Route component={UserIsAuthenticated(EditProfile)} exact path="/editprofile"/>
                             <Route component={UserIsAuthenticated(WorkoutPlan)} exact path="/workout"/>
-                            <Route component={UserIsNotAuthenticated(Login)} exact path={process.env.PUBLIC_URL + '/login'}/>
-                            <Route component={UserIsNotAuthenticated(Register)} exact path={process.env.PUBLIC_URL + '/register'}/>
-                            <Route component={UserIsAuthenticated(EditDiet)}exact path={process.env.PUBLIC_URL + '/edit/:id'}/>
-                            <Route component={UserIsAuthenticated(UsersDiet)} exact path={process.env.PUBLIC_URL + '/userdiet'}
+                            <Route component={UserIsNotAuthenticated(Login)} exact path="/login"/>
+                            <Route component={UserIsNotAuthenticated(Register)} exact path="/register"/>
+                            <Route component={UserIsAuthenticated(EditDiet)} exact path="/edit/:id"/>
+                            <Route component={UserIsAuthenticated(UsersDiet)} exact path="/usersdiet"
 
 
                             />
